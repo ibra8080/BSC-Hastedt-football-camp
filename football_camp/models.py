@@ -6,13 +6,14 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Service(models.Model):
     TRAININGS = (("skills", "Skills"), ("fitness", "Fitness"), ("tactics", "Tactics"))
+    title = models.CharField(max_length=100, null=False, blank=False)
     focus = models.CharField(max_length=200)
     duration = models.CharField(max_length=100)
     features = models.TextField()
     training = models.CharField(max_length=10, choices=TRAININGS, null=True, blank=True)
 
     def __str__(self):
-        return self.focus
+        return self.title
 
 class Player(models.Model):
     GENDERS = (("male", "Male"), ("female", "Female"))
