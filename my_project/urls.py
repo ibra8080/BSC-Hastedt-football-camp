@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from football_camp import views as index_views
-
+from football_camp import views
 
 urlpatterns = [
-    path('', index_views.index, name='index'),
+    path('', views.index, name='index'),
     path('admin/', admin.site.urls),
+    path('services/', views.service_list, name='service_list'),
 ]
+
