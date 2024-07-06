@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Players</title>
+</head>
+<body>
+    <h1>Manage Players</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="player_name">Player Name:</label>
+        <input type="text" name="player_name" id="player_name">
+        <button type="submit">Add Player</button>
+    </form>
+    <h2>Current Players</h2>
+    <ul>
+        {% for player in players %}
+            <li>{{ player.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
