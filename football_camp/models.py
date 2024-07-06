@@ -44,3 +44,8 @@ class Booking(models.Model):
     class Meta:
         verbose_name = "Booking"
         verbose_name_plural = "Bookings"
+
+
+class TrainingSchedule(models.Model):
+    # Define fields for TrainingSchedule as needed
+    schedule_details = models.TextField()
