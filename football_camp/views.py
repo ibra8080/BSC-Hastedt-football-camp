@@ -16,8 +16,20 @@ def home(request):
 
 def admin_create_service(request):
     if request.method == 'POST':
-        service_name = request.POST.get('service_name')
-        Service.objects.create(name=service_name)
+        title = request.POST.get('title')
+        focus = request.POST.get('focus')
+        duration = request.POST.get('duration')
+        features = request.POST.get('features')
+        training = request.POST.get('training')
+        
+        Service.objects.create(
+            title=title,
+            focus=focus,
+            duration=duration,
+            features=features,
+            training=training
+        )
+        
         return redirect('admin_manage_services')
 
     return render(request, 'football_camp/admin_create_service.html')
@@ -73,3 +85,24 @@ def manage_players(request):
 def service_list(request):
     services = Service.objects.all()
     return render(request, 'football_camp/service_list.html', {'services': services})
+
+
+def edit_service(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+
+    if request.method == 'POST':
+        service.title = request.POST.get('title')
+        service.focus = request.POST.get('focus')
+        service.duration = request.POST.get('duration')
+        service.features = request.POST.get('features')
+        service.training = request.POST.get('training')
+        service.save()
+        return redirect('admin_manage_services')
+
+    return render(request, 'football_camp/edit_service.html', {'service': service})
+
+
+def delete_service(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    service.delete()
+    return redirect('admin_manage_services')
