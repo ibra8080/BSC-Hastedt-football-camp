@@ -14,9 +14,9 @@
         {% endfor %}
     </select>
     <label for="service">Service:</label>
-    <select name="service_id">
+    <select name="service_ids" multiple>
         {% for service in services %}
-        <option value="{{ service.id }}">{{ service.title }}</option>
+            <option value="{{ service.id }}">{{ service.title }}</option>
         {% endfor %}
     </select>
     <button type="submit">Book Service</button>
