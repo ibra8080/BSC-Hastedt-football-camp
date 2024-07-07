@@ -1,0 +1,19 @@
+
+{% extends 'football_camp/base.html' %}
+
+{% block content %}
+
+<h1>Player Profile: {{ player.name }}</h1>
+<ul>
+    {% for booking in bookings %}
+        <li>Booking Date: {{ booking.booking_date }}
+            <ul>
+                {% for service in booking.services.all %}
+                    <li>{{ service.title }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

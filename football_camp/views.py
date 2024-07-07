@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Service, Player, Booking
 from django.contrib.auth.models import User
+from django.shortcuts import render, redirect, get_object_or_404
+
 
 
 # Create your views here.
@@ -29,18 +31,27 @@ def book_service(request):
     if request.method == 'POST':
         user = request.user
         player_id = request.POST.get('player_id')
-        service_id = request.POST.get('service_id')
+        service_ids = request.POST.getlist('service_ids')  # Adjust the form parameter accordingly
 
-        player = Player.objects.get(id=player_id)
-        service = Service.objects.get(id=service_id)
+        player = get_object_or_404(Player, id=player_id)
+        booking = Booking.objects.create(user=user, player=player)
 
-        Booking.objects.create(user=user, player=player, service=service)
+        for service_id in service_ids:
+            service = get_object_or_404(Service, id=service_id)
+            booking.services.add(service)
 
-        return redirect('service_list')
+        booking.save()
+        return redirect('player_profile', player_id=player_id)
 
     players = Player.objects.all()
     services = Service.objects.all()
     return render(request, 'football_camp/book_service.html', {'players': players, 'services': services})
+
+
+def player_profile(request, player_id):
+    player = get_object_or_404(Player, id=player_id)
+    bookings = Booking.objects.filter(player=player)
+    return render(request, 'football_camp/player_profile.html', {'player': player, 'bookings': bookings})
 
 
 def view_training_schedule(request):
