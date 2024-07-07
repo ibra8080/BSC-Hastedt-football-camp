@@ -35,7 +35,7 @@ class Player(models.Model):
 class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="User")
     player = models.ForeignKey(Player, on_delete=models.CASCADE, verbose_name="Player")
-    service = models.ForeignKey(Service, on_delete=models.CASCADE, verbose_name="Service")
+    services = models.ManyToManyField(Service, verbose_name="Services")
     booking_date = models.DateTimeField(auto_now_add=True, verbose_name="Booking Date")
 
     def __str__(self):
