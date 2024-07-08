@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Service, Player, Booking
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
-
+from django.contrib.auth.forms import UserCreationForm
 
 
 # Create your views here.
@@ -106,3 +106,14 @@ def delete_service(request, service_id):
     service = get_object_or_404(Service, id=service_id)
     service.delete()
     return redirect('admin_manage_services')
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # Redirect to login after successful registration
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
