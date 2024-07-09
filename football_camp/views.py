@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -15,6 +15,7 @@ def home(request):
     return render(request, 'football_camp/base.html')
 
 
+@login_required
 def admin_create_service(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -35,11 +36,13 @@ def admin_create_service(request):
 
     return render(request, 'football_camp/admin_create_service.html')
 
+
 def admin_manage_services(request):
     services = Service.objects.all()
     return render(request, 'football_camp/admin_manage_services.html', {'services': services})
 
 
+@login_required
 def book_service(request):
     if request.method == 'POST':
         user = request.user
@@ -61,18 +64,21 @@ def book_service(request):
     return render(request, 'football_camp/book_service.html', {'players': players, 'services': services})
 
 
+@login_required
 def player_profile(request, player_id):
     player = get_object_or_404(Player, id=player_id)
     bookings = Booking.objects.filter(player=player)
     return render(request, 'football_camp/player_profile.html', {'player': player, 'bookings': bookings})
 
 
+@login_required
 def view_training_schedule(request):
     # Assuming you have a TrainingSchedule model
     schedule = TrainingSchedule.objects.all()
     return render(request, 'football_camp/view_training_schedule.html', {'schedule': schedule})
 
 
+@login_required
 def manage_players(request):
     if request.method == 'POST':
         player_name = request.POST.get('player_name')
@@ -88,6 +94,7 @@ def service_list(request):
     return render(request, 'football_camp/service_list.html', {'services': services})
 
 
+@login_required
 def edit_service(request, service_id):
     service = get_object_or_404(Service, id=service_id)
 
@@ -103,6 +110,7 @@ def edit_service(request, service_id):
     return render(request, 'football_camp/edit_service.html', {'service': service})
 
 
+@login_required
 def delete_service(request, service_id):
     service = get_object_or_404(Service, id=service_id)
     service.delete()
