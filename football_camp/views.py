@@ -4,6 +4,7 @@ from .models import Service, Player, Booking
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
+from .forms import CustomUserCreationForm
 
 
 # Create your views here.
@@ -110,10 +111,10 @@ def delete_service(request, service_id):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')  # Redirect to login after successful registration
+            return redirect('login')  # Redirect to the login page after successful registration
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
