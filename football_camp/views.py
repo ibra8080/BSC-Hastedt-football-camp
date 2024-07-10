@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib import messages
 from .models import Service, Player, Booking
 from .forms import CustomUserCreationForm
 
@@ -16,7 +17,16 @@ def is_superuser(user):
 
 # Admin Functions
 
-@user_passes_test(is_superuser)
+def superuser_required(view_func):
+    def _wrapped_view_func(request, *args, **kwargs):
+        if not request.user.is_superuser:
+            messages.error(request, "You don’t have permission to access this page.")
+            return redirect('service_list')
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view_func
+
+
+@superuser_required
 def admin_create_service(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -37,12 +47,12 @@ def admin_create_service(request):
 
     return render(request, 'football_camp/admin_create_service.html')
 
-@user_passes_test(is_superuser)
+@superuser_required
 def admin_manage_services(request):
     services = Service.objects.all()
     return render(request, 'football_camp/admin_manage_services.html', {'services': services})
 
-@user_passes_test(is_superuser)
+@superuser_required
 def edit_service(request, service_id):
     service = get_object_or_404(Service, id=service_id)
 
@@ -57,7 +67,7 @@ def edit_service(request, service_id):
 
     return render(request, 'football_camp/edit_service.html', {'service': service})
 
-@user_passes_test(is_superuser)
+@superuser_required
 def delete_service(request, service_id):
     service = get_object_or_404(Service, id=service_id)
     service.delete()
