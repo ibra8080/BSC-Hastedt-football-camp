@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from .models import Service, Player, Booking
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, PlayerForm
 
 # Create your views here.
 def index(request):
@@ -24,7 +24,6 @@ def superuser_required(view_func):
             return redirect('service_list')
         return view_func(request, *args, **kwargs)
     return _wrapped_view_func
-
 
 @superuser_required
 def admin_create_service(request):
@@ -73,7 +72,6 @@ def delete_service(request, service_id):
     service.delete()
     return redirect('admin_manage_services')
 
-
 # User Functions 
 
 @login_required
@@ -97,13 +95,11 @@ def book_service(request):
     services = Service.objects.all()
     return render(request, 'football_camp/book_service.html', {'players': players, 'services': services})
 
-
 @login_required
 def player_profile(request, player_id):
     player = get_object_or_404(Player, id=player_id)
     bookings = Booking.objects.filter(player=player)
     return render(request, 'football_camp/player_profile.html', {'player': player, 'bookings': bookings})
-
 
 @login_required
 def view_training_schedule(request):
@@ -111,22 +107,22 @@ def view_training_schedule(request):
     schedule = TrainingSchedule.objects.all()
     return render(request, 'football_camp/view_training_schedule.html', {'schedule': schedule})
 
-
 @login_required
 def manage_players(request):
     if request.method == 'POST':
-        player_name = request.POST.get('player_name')
-        Player.objects.create(name=player_name)
-        return redirect('manage_players')
+        form = PlayerForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('manage_players')
+    else:
+        form = PlayerForm()
 
     players = Player.objects.all()
-    return render(request, 'football_camp/manage_players.html', {'players': players})
-
+    return render(request, 'football_camp/manage_players.html', {'players': players, 'form': form})
 
 def service_list(request):
     services = Service.objects.all()
     return render(request, 'football_camp/service_list.html', {'services': services})
-
 
 def register(request):
     if request.method == 'POST':
