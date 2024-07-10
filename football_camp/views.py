@@ -10,7 +10,8 @@ def index(request):
     return HttpResponse('Hello football players')
 
 def home(request):
-    return render(request, 'football_camp/base.html')
+    services = Service.objects.all()
+    return render(request, 'football_camp/home.html', {'services': services})
 
 def is_superuser(user):
     return user.is_superuser
@@ -72,6 +73,7 @@ def delete_service(request, service_id):
     service.delete()
     return redirect('admin_manage_services')
 
+
 # User Functions 
 
 @login_required
@@ -95,17 +97,20 @@ def book_service(request):
     services = Service.objects.all()
     return render(request, 'football_camp/book_service.html', {'players': players, 'services': services})
 
+
 @login_required
 def player_profile(request, player_id):
     player = get_object_or_404(Player, id=player_id)
     bookings = Booking.objects.filter(player=player)
     return render(request, 'football_camp/player_profile.html', {'player': player, 'bookings': bookings})
 
+
 @login_required
 def view_training_schedule(request):
     # Assuming you have a TrainingSchedule model
     schedule = TrainingSchedule.objects.all()
     return render(request, 'football_camp/view_training_schedule.html', {'schedule': schedule})
+
 
 @login_required
 def manage_players(request):
@@ -120,9 +125,11 @@ def manage_players(request):
     players = Player.objects.all()
     return render(request, 'football_camp/manage_players.html', {'players': players, 'form': form})
 
+
 def service_list(request):
     services = Service.objects.all()
     return render(request, 'football_camp/service_list.html', {'services': services})
+
 
 def register(request):
     if request.method == 'POST':

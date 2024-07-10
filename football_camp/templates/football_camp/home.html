@@ -1,0 +1,24 @@
+{% extends 'football_camp/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to BSC Hastedt Football Camp</h1>
+
+<section id="programs" class="my-5">
+    <h2 class="mb-4">Programs Offered</h2>
+    <div class="row">
+        {% for service in services %}
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ service.title }}</h5>
+                        <p class="card-text">{{ service.features }}</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
