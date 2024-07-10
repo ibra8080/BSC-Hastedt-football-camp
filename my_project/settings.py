@@ -33,6 +33,7 @@ DEBUG = os.environ.get('DEBUG', False)
 ALLOWED_HOSTS = [
     '.codeinstitute-ide.net',
     '.herokuapp.com',
+    'https://8000-ibra8080-bschastedtfoot-3i65fw8n2e7.ws.codeinstitute-ide.net',
 ]
 
 
@@ -93,10 +94,10 @@ DATABASES = {
 #     }
 # }
 
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://*.codeinstitute-ide.net',
-#     'https://*.herokuapp.com',
-# ]
+CSRF_TRUSTED_ORIGINS = [
+     'https://*.codeinstitute-ide.net',
+     'https://*.herokuapp.com',
+ ]
 
 
 # Password validation
