@@ -1,13 +1,8 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
-from .models import Service, Player, Booking
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required, user_passes_test
+from .models import Service, Player, Booking
 from .forms import CustomUserCreationForm
-
-
 
 # Create your views here.
 def index(request):
@@ -16,8 +11,12 @@ def index(request):
 def home(request):
     return render(request, 'football_camp/base.html')
 
+def is_superuser(user):
+    return user.is_superuser
 
-@login_required
+# Admin Functions
+
+@user_passes_test(is_superuser)
 def admin_create_service(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -38,11 +37,34 @@ def admin_create_service(request):
 
     return render(request, 'football_camp/admin_create_service.html')
 
-
+@user_passes_test(is_superuser)
 def admin_manage_services(request):
     services = Service.objects.all()
     return render(request, 'football_camp/admin_manage_services.html', {'services': services})
 
+@user_passes_test(is_superuser)
+def edit_service(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+
+    if request.method == 'POST':
+        service.title = request.POST.get('title')
+        service.focus = request.POST.get('focus')
+        service.duration = request.POST.get('duration')
+        service.features = request.POST.get('features')
+        service.training = request.POST.get('training')
+        service.save()
+        return redirect('admin_manage_services')
+
+    return render(request, 'football_camp/edit_service.html', {'service': service})
+
+@user_passes_test(is_superuser)
+def delete_service(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    service.delete()
+    return redirect('admin_manage_services')
+
+
+# User Functions 
 
 @login_required
 def book_service(request):
@@ -94,29 +116,6 @@ def manage_players(request):
 def service_list(request):
     services = Service.objects.all()
     return render(request, 'football_camp/service_list.html', {'services': services})
-
-
-@login_required
-def edit_service(request, service_id):
-    service = get_object_or_404(Service, id=service_id)
-
-    if request.method == 'POST':
-        service.title = request.POST.get('title')
-        service.focus = request.POST.get('focus')
-        service.duration = request.POST.get('duration')
-        service.features = request.POST.get('features')
-        service.training = request.POST.get('training')
-        service.save()
-        return redirect('admin_manage_services')
-
-    return render(request, 'football_camp/edit_service.html', {'service': service})
-
-
-@login_required
-def delete_service(request, service_id):
-    service = get_object_or_404(Service, id=service_id)
-    service.delete()
-    return redirect('admin_manage_services')
 
 
 def register(request):
