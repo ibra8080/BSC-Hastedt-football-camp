@@ -1,10 +1,10 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}BSC Hastedt Football Camp{% endblock %}</title>
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -29,7 +29,10 @@
                     <a class="nav-link" href="{% url 'player_profile' player_id=user.id %}">Your Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout ({{ user.username }})</a>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-link btn btn-link" style="cursor: pointer;">Logout ({{ user.username }})</button>
+                    </form>
                 </li>
                 {% else %}
                 <li class="nav-item">
@@ -54,5 +57,3 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
-</html>
