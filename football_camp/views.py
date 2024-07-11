@@ -11,6 +11,7 @@ def index(request):
 
 def home(request):
     services = Service.objects.all()
+    print(services)  
     return render(request, 'football_camp/home.html', {'services': services})
 
 def is_superuser(user):
@@ -130,11 +131,9 @@ def manage_players(request):
 def user_account(request):
     user = request.user
     players = Player.objects.filter(user=user)
-    bookings = Booking.objects.filter(user=user)
     context = {
         'user': user,
         'players': players,
-        'bookings': bookings,
     }
     return render(request, 'football_camp/user_account.html', context)
 

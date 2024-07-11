@@ -14,10 +14,8 @@
         <a href="{% url 'player_profile' player_id=player.id %}">{{ player.first_name }} {{ player.last_name }}</a>
         - Age: {{ player.age }} - Gender: {{ player.get_gender_display }}
         <ul>
-            {% for booking in bookings %}
-                {% if booking.player == player %}
-                <li>{{ booking.service.title }} - {{ booking.booking_date }}</li>
-                {% endif %}
+            {% for booking in player.booking_set.all %}
+                <li>{{ booking.services.all.0.title }} - {{ booking.booking_date }}</li>
             {% endfor %}
         </ul>
     </li>

@@ -19,7 +19,7 @@ class Service(models.Model):
 
 # Player Model
 class Player(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)  
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='players')
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     age = models.IntegerField()
@@ -33,6 +33,7 @@ class Player(models.Model):
     class Meta:
         verbose_name = "Player"
         verbose_name_plural = "Players"
+
 
 # Booking Model
 class Booking(models.Model):
