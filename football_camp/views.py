@@ -126,6 +126,19 @@ def manage_players(request):
     return render(request, 'football_camp/manage_players.html', {'players': players, 'form': form})
 
 
+@login_required
+def user_account(request):
+    user = request.user
+    players = Player.objects.filter(user=user)
+    bookings = Booking.objects.filter(user=user)
+    context = {
+        'user': user,
+        'players': players,
+        'bookings': bookings,
+    }
+    return render(request, 'football_camp/user_account.html', context)
+
+
 def service_list(request):
     services = Service.objects.all()
     return render(request, 'football_camp/service_list.html', {'services': services})
