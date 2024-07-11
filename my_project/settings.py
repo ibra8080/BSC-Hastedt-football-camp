@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'football_camp',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
