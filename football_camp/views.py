@@ -100,6 +100,31 @@ def book_service(request):
 
 
 @login_required
+def edit_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    if request.method == 'POST':
+        service_ids = request.POST.getlist('service_ids')
+        booking.services.clear()
+        for service_id in service_ids:
+            service = get_object_or_404(Service, id=service_id)
+            booking.services.add(service)
+        booking.save()
+        return redirect('player_profile', player_id=booking.player.id)
+
+    services = Service.objects.all()
+    return render(request, 'football_camp/edit_booking.html', {'booking': booking, 'services': services})
+
+
+@login_required
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    if request.method == 'POST':
+        booking.delete()
+        return redirect('player_profile', player_id=booking.player.id)
+    return render(request, 'football_camp/delete_booking.html', {'booking': booking})
+
+
+@login_required
 def player_profile(request, player_id):
     player = get_object_or_404(Player, id=player_id)
     bookings = Booking.objects.filter(player=player)
