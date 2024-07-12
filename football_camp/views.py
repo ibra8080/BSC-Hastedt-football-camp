@@ -82,9 +82,9 @@ def book_service(request):
     if request.method == 'POST':
         user = request.user
         player_id = request.POST.get('player_id')
-        service_ids = request.POST.getlist('service_ids')  # Adjust the form parameter accordingly
+        service_ids = request.POST.getlist('service_ids')
 
-        player = get_object_or_404(Player, id=player_id)
+        player = get_object_or_404(Player, id=player_id, user=user)  
         booking = Booking.objects.create(user=user, player=player)
 
         for service_id in service_ids:
@@ -94,7 +94,7 @@ def book_service(request):
         booking.save()
         return redirect('player_profile', player_id=player_id)
 
-    players = Player.objects.all()
+    players = Player.objects.filter(user=request.user)  
     services = Service.objects.all()
     return render(request, 'football_camp/book_service.html', {'players': players, 'services': services})
 
@@ -118,12 +118,14 @@ def manage_players(request):
     if request.method == 'POST':
         form = PlayerForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            player = form.save(commit=False)
+            player.user = request.user  
+            player.save()
             return redirect('manage_players')
     else:
         form = PlayerForm()
 
-    players = Player.objects.all()
+    players = Player.objects.filter(user=request.user)
     return render(request, 'football_camp/manage_players.html', {'players': players, 'form': form})
 
 
