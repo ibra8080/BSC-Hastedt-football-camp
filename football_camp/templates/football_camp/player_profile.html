@@ -3,9 +3,9 @@
 {% block title %}Player Profile{% endblock %}
 
 {% block content %}
-<h1>Player Profile: {{ player.first_name }} {{ player.last_name }}</h1>
+<!-- <h1>Player Profile: {{ player.first_name }} {{ player.last_name }}</h1> -->
 
-<h3>Bookings for {{ player.first_name }}:</h3>
+<h2>Bookings for {{ player.first_name }}:</h2>
 <ul>
     {% for booking in bookings %}
     <li>

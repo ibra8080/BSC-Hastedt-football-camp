@@ -101,27 +101,35 @@ def book_service(request):
 
 @login_required
 def edit_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    booking = get_object_or_404(Booking, id=booking_id)
     if request.method == 'POST':
+        player_id = request.POST.get('player_id')
         service_ids = request.POST.getlist('service_ids')
+        
+        booking.player = get_object_or_404(Player, id=player_id)
         booking.services.clear()
+        
         for service_id in service_ids:
             service = get_object_or_404(Service, id=service_id)
             booking.services.add(service)
+        
         booking.save()
         return redirect('player_profile', player_id=booking.player.id)
-
+    
+    players = Player.objects.all()
     services = Service.objects.all()
-    return render(request, 'football_camp/edit_booking.html', {'booking': booking, 'services': services})
+    return render(request, 'football_camp/edit_booking.html', {'booking': booking, 'players': players, 'services': services})
 
 
 @login_required
 def delete_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    booking = get_object_or_404(Booking, id=booking_id)
     if request.method == 'POST':
+        player_id = booking.player.id
         booking.delete()
-        return redirect('player_profile', player_id=booking.player.id)
-    return render(request, 'football_camp/delete_booking.html', {'booking': booking})
+        return redirect('player_profile', player_id=player_id)
+    return render(request, 'football_camp/confirm_delete_booking.html', {'booking': booking})
+
 
 
 @login_required
