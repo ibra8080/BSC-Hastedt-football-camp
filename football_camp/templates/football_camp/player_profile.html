@@ -1,18 +1,24 @@
-
 {% extends 'football_camp/base.html' %}
 
-{% block content %}
+{% block title %}Player Profile{% endblock %}
 
-<h1>Player Profile: {{ player.name }}</h1>
+{% block content %}
+<h1>Player Profile: {{ player.first_name }} {{ player.last_name }}</h1>
+
+<h3>Bookings for {{ player.first_name }}:</h3>
 <ul>
     {% for booking in bookings %}
-        <li>Booking Date: {{ booking.booking_date }}
-            <ul>
-                {% for service in booking.services.all %}
-                    <li>{{ service.title }}</li>
-                {% endfor %}
-            </ul>
-        </li>
+    <li>
+        <p>Booking Date: {{ booking.booking_date }}</p>
+        <p>Services:</p>
+        <ul>
+            {% for service in booking.services.all %}
+            <li>{{ service.title }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'edit_booking' booking_id=booking.id %}" class="btn btn-secondary">Edit Booking</a>
+        <a href="{% url 'delete_booking' booking_id=booking.id %}" class="btn btn-danger">Delete Booking</a>
+    </li>
     {% endfor %}
 </ul>
 
