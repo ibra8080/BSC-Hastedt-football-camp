@@ -1,0 +1,22 @@
+{% extends 'football_camp/base.html' %}
+
+{% block title %}Edit Booking{% endblock %}
+
+{% block content %}
+<h1>Edit Booking for {{ booking.player.first_name }} {{ booking.player.last_name }}</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="services">Select Services:</label>
+        {% for service in services %}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="service_ids" value="{{ service.id }}" id="service_{{ service.id }}" {% if service in booking.services.all %}checked{% endif %}>
+                <label class="form-check-label" for="service_{{ service.id }}">
+                    {{ service.title }}
+                </label>
+            </div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary">Update Booking</button>
+</form>
+{% endblock %}
