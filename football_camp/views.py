@@ -178,6 +178,11 @@ def service_list(request):
     return render(request, 'football_camp/service_list.html', {'services': services})
 
 
+def service_page(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    return render(request, 'football_camp/service_page.html', {'service': service})
+    
+
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
