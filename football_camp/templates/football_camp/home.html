@@ -5,23 +5,22 @@
 {% block content %}
 <h1>Welcome to BSC Hastedt Football Camp</h1>
 
-<section id="programs" class="my-5">
-    <h2 class="mb-4">Programs Offered</h2>
-    <div class="row">
-        {% for service in services %}
-        <div class="col-md-6 mb-4">
-            <div class="card">
-                {% if service.image %}
-                    <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}">
-                {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ service.title }}</h5>
-                    <p class="card-text">{{ service.focus }}</p>
-                    <a href="{% url 'service_page' service_id=service.id %}" class="btn btn-primary">Learn More</a>
-                </div>
+<h2>Programs Offered</h2>
+
+<div class="row">
+    {% for service in services %}
+    <div class="col-md-6">
+        <div class="card mb-4">
+            {% if service.image %}
+            <img class="card-img-top" src="{{ service.image.url }}" alt="{{ service.title }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ service.title }}</h5>
+                <p class="card-text">{{ service.focus }}</p>
+                <a href="{% url 'service_page' service.id %}" class="btn btn-primary">Learn More</a>
             </div>
         </div>
-        {% endfor %}
     </div>
-</section>
+    {% endfor %}
+</div>
 {% endblock %}
