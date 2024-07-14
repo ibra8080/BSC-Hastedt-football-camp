@@ -3,11 +3,9 @@ from .models import Service, Player, Booking
 from django_summernote.admin import SummernoteModelAdmin
 
 
-class ServiceAdmin(SummernoteModelAdmin):  
-    summernote_fields = ('features',)  
-
-class ServiceAdmin(admin.ModelAdmin):
+class ServiceAdmin(SummernoteModelAdmin):
     list_display = ('title', 'focus', 'duration', 'training')
+    summernote_fields = ('features',)
     fields = ('title', 'focus', 'duration', 'features', 'training', 'image')
 
 
