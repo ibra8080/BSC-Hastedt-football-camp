@@ -11,7 +11,6 @@ def index(request):
 
 def home(request):
     services = Service.objects.all()
-    print(services)  
     return render(request, 'football_camp/home.html', {'services': services})
 
 def is_superuser(user):
@@ -82,14 +81,13 @@ def book_service(request):
     if request.method == 'POST':
         user = request.user
         player_id = request.POST.get('player_id')
-        service_ids = request.POST.getlist('service_ids')
+        service_ids = request.POST.getlist('service_ids')  
 
-        player = get_object_or_404(Player, id=player_id, user=user)  
+        player = get_object_or_404(Player, id=player_id)
         booking = Booking.objects.create(user=user, player=player)
 
-        for service_id in service_ids:
-            service = get_object_or_404(Service, id=service_id)
-            booking.services.add(service)
+        services = Service.objects.filter(id__in=service_ids)
+        booking.services.set(services)
 
         booking.save()
         return redirect('player_profile', player_id=player_id)
@@ -134,8 +132,8 @@ def delete_booking(request, booking_id):
 
 @login_required
 def player_profile(request, player_id):
-    player = get_object_or_404(Player, id=player_id)
-    bookings = Booking.objects.filter(player=player)
+    player = get_object_or_404(Player.objects.select_related('user'), id=player_id)
+    bookings = Booking.objects.filter(player=player).select_related('user').prefetch_related('services')
     return render(request, 'football_camp/player_profile.html', {'player': player, 'bookings': bookings})
 
 
