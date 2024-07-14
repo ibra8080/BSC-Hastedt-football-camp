@@ -9,6 +9,7 @@ class Service(models.Model):
     duration = models.CharField(max_length=100, verbose_name="Service Duration")
     features = models.TextField(verbose_name="Service Features")
     training = models.CharField(max_length=10, choices=TRAININGS, null=True, blank=True, verbose_name="Training Type")
+    image = models.ImageField(upload_to='services/', blank=True, null=True, verbose_name="Service Image")
 
     def __str__(self):
         return self.title
