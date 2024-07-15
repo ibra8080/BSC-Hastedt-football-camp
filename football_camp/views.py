@@ -129,7 +129,6 @@ def delete_booking(request, booking_id):
     return render(request, 'football_camp/confirm_delete_booking.html', {'booking': booking})
 
 
-
 @login_required
 def player_profile(request, player_id):
     player = get_object_or_404(Player.objects.select_related('user'), id=player_id)
@@ -149,15 +148,17 @@ def manage_players(request):
     if request.method == 'POST':
         form = PlayerForm(request.POST, request.FILES)
         if form.is_valid():
-            player = form.save(commit=False)
-            player.user = request.user  
-            player.save()
-            return redirect('manage_players')
+            form.save()
+            return redirect('player_added')
     else:
         form = PlayerForm()
 
-    players = Player.objects.filter(user=request.user)
+    players = Player.objects.all()
     return render(request, 'football_camp/manage_players.html', {'players': players, 'form': form})
+
+@login_required
+def player_added(request):
+    return render(request, 'football_camp/player_added.html')
 
 
 @login_required
