@@ -78,21 +78,27 @@ def delete_service(request, service_id):
 
 @login_required
 def book_service(request):
+    user = request.user
+    players = Player.objects.filter(user=user)
+    
+    if not players.exists():
+        messages.info(request, "You need to add a player first. Please add a player.")
+        return redirect('manage_players')
+
     if request.method == 'POST':
-        user = request.user
         player_id = request.POST.get('player_id')
-        service_ids = request.POST.getlist('service_ids')  
+        service_ids = request.POST.getlist('service_ids')
 
         player = get_object_or_404(Player, id=player_id)
         booking = Booking.objects.create(user=user, player=player)
 
-        services = Service.objects.filter(id__in=service_ids)
-        booking.services.set(services)
+        for service_id in service_ids:
+            service = get_object_or_404(Service, id=service_id)
+            booking.services.add(service)
 
         booking.save()
         return redirect('player_profile', player_id=player_id)
 
-    players = Player.objects.filter(user=request.user)  
     services = Service.objects.all()
     return render(request, 'football_camp/book_service.html', {'players': players, 'services': services})
 

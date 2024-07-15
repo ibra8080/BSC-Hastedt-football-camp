@@ -1,28 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Players</title>
-</head>
-<body>
-    {% extends 'football_camp/base.html' %}
+{% extends 'football_camp/base.html' %}
 
-    {% block title %}Manage Players{% endblock %}
+{% block content %}
+<h1>Manage Players</h1>
 
-    {% block content %}
-    <h1>Manage Players</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Add Player</button>
-    </form>
-    <ul>
-        {% for player in players %}
-        <li>{{ player.first_name }} {{ player.last_name }} - Age: {{ player.age }} - Gender:
-            {{ player.get_gender_display }} - Height: {{ player.height }} cm</li>
-        {% endfor %}
-    </ul>
-    {% endblock %}
-</body>
-</html>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Add Player</button>
+</form>
+
+<h2>Your Players</h2>
+<ul>
+    {% for player in players %}
+    <li>{{ player.first_name }} {{ player.last_name }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'book_service' %}" class="btn btn-secondary">Back to Book Service</a>
+{% endblock %}
