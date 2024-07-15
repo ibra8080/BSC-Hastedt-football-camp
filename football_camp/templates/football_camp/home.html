@@ -3,24 +3,26 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>Welcome to BSC Hastedt Football Camp</h1>
+<div class="container">
+    <h1>Welcome to BSC Hastedt Football Camp</h1>
 
-<h2>Programs Offered</h2>
+    <h2>Programs Offered</h2>
 
-<div class="row">
-    {% for service in services %}
-    <div class="col-md-6">
-        <div class="card mb-4">
-            {% if service.image %}
-            <img class="card-img-top" src="{{ service.image.url }}" alt="{{ service.title }}">
-            {% endif %}
-            <div class="card-body">
-                <h5 class="card-title">{{ service.title }}</h5>
-                <p class="card-text">{{ service.focus }}</p>
-                <a href="{% url 'service_page' service.id %}" class="btn btn-primary">Learn More</a>
+    <div class="row">
+        {% for service in services %}
+        <div class="col-md-6">
+            <div class="card mb-4">
+                {% if service.image %}
+                <img class="card-img-top" src="{{ service.image.url }}" alt="{{ service.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ service.title }}</h5>
+                    <p class="card-text">{{ service.focus }}</p>
+                    <a href="{% url 'service_page' service.id %}" class="btn btn-primary">Learn More</a>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
