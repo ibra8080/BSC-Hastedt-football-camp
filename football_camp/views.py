@@ -241,3 +241,26 @@ def user_logout(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
     return redirect('/')  
+
+@login_required
+def edit_player(request, player_id):
+    player = get_object_or_404(Player, id=player_id, user=request.user)
+    if request.method == 'POST':
+        form = PlayerForm(request.POST, request.FILES, instance=player)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Player updated successfully.')
+            return redirect('user_account')
+    else:
+        form = PlayerForm(instance=player)
+    return render(request, 'football_camp/edit_player.html', {'form': form, 'player': player})
+
+
+@login_required
+def delete_player(request, player_id):
+    player = get_object_or_404(Player, id=player_id, user=request.user)
+    if request.method == 'POST':
+        player.delete()
+        messages.success(request, 'Player deleted successfully.')
+        return redirect('user_account')
+    return render(request, 'football_camp/confirm_delete_player.html', {'player': player})
