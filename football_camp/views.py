@@ -148,7 +148,9 @@ def manage_players(request):
     if request.method == 'POST':
         form = PlayerForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            player = form.save(commit=False)
+            player.user = request.user
+            player.save()
             return redirect('player_added')
     else:
         form = PlayerForm()
