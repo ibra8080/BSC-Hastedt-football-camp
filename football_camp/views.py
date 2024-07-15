@@ -157,11 +157,16 @@ def manage_players(request):
             player = form.save(commit=False)
             player.user = request.user
             player.save()
-            return redirect('player_added')
+            messages.success(request, "Your player was successfully added.")
+            return render(request, 'football_camp/manage_players.html', {
+                'form': PlayerForm(),
+                'players': Player.objects.filter(user=request.user),
+                'success': True
+            })
     else:
         form = PlayerForm()
 
-    players = Player.objects.all()
+    players = Player.objects.filter(user=request.user)
     return render(request, 'football_camp/manage_players.html', {'players': players, 'form': form})
 
 @login_required

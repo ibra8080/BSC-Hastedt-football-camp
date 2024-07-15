@@ -9,6 +9,14 @@
     {% endfor %}
 {% endif %}
 
+{% if success %}
+    <div class="alert alert-success">
+        Your player was successfully added.
+        <a href="{% url 'manage_players' %}">Add another player</a> or
+        <a href="{% url 'book_service' %}">Go to booking services</a>.
+    </div>
+{% endif %}
+
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
@@ -22,5 +30,4 @@
     {% endfor %}
 </ul>
 
-<a href="{% url 'book_service' %}" class="btn btn-secondary">Back to Book Service</a>
 {% endblock %}
