@@ -1,0 +1,10 @@
+{% extends 'football_camp/base.html' %}
+
+{% block title %}Player Added{% endblock %}
+
+{% block content %}
+<h1>Player Added Successfully</h1>
+<p>Your player was successfully added.</p>
+<a href="{% url 'manage_players' %}" class="btn btn-primary">Add Another Player</a>
+<a href="{% url 'book_service' %}" class="btn btn-secondary">Go to Booking Services</a>
+{% endblock %}
