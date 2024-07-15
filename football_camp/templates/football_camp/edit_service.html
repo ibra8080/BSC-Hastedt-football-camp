@@ -13,26 +13,28 @@
     {% block title %}Edit Service{% endblock %}
 
     {% block content %}
-    <h1>Edit Service</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <label for="title">Title:</label>
-        <input type="text" name="title" value="{{ service.title }}" required>
-        <label for="focus">Focus:</label>
-        <input type="text" name="focus" value="{{ service.focus }}" required>
-        <label for="duration">Duration:</label>
-        <input type="text" name="duration" value="{{ service.duration }}" required>
-        <label for="features">Features:</label>
-        <textarea name="features" required>{{ service.features }}</textarea>
-        <label for="training">Training:</label>
-        <select name="training">
-            <option value="skills" {% if service.training == "skills" %}selected{% endif %}>Skills</option>
-            <option value="fitness" {% if service.training == "fitness" %}selected{% endif %}>Fitness</option>
-            <option value="tactics" {% if service.training == "tactics" %}selected{% endif %}>Tactics</option>
-            <option value="all" {% if service.training == "all" %}selected{% endif %}>All</option>
-        </select>
-        <button type="submit">Save Changes</button>
-    </form>
+    <div class="container">
+        <h1>Edit Service</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="title">Title:</label>
+            <input type="text" name="title" value="{{ service.title }}" required>
+            <label for="focus">Focus:</label>
+            <input type="text" name="focus" value="{{ service.focus }}" required>
+            <label for="duration">Duration:</label>
+            <input type="text" name="duration" value="{{ service.duration }}" required>
+            <label for="features">Features:</label>
+            <textarea name="features" required>{{ service.features }}</textarea>
+            <label for="training">Training:</label>
+            <select name="training">
+                <option value="skills" {% if service.training == "skills" %}selected{% endif %}>Skills</option>
+                <option value="fitness" {% if service.training == "fitness" %}selected{% endif %}>Fitness</option>
+                <option value="tactics" {% if service.training == "tactics" %}selected{% endif %}>Tactics</option>
+                <option value="all" {% if service.training == "all" %}selected{% endif %}>All</option>
+            </select>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
     {% endblock %}
 </body>
 

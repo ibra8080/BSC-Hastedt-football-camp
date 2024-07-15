@@ -1,11 +1,14 @@
 {% extends 'football_camp/base.html' %}
 
-{% block title %}Service Detail{% endblock %}
+{% block title %}Service Details{% endblock %}
 
 {% block content %}
-<h1>{{ service.title }}</h1>
-<p>{{ service.features }}</p>
-<p><strong>Focus:</strong> {{ service.focus }}</p>
-<p><strong>Duration:</strong> {{ service.duration }}</p>
-<p><strong>Training Type:</strong> {{ service.get_training_display }}</p>
+<div class="container">
+    <h1>{{ service.title }}</h1>
+    {% if service.image %}
+    <img src="{{ service.image.url }}" alt="{{ service.title }}" class="img-fluid">
+    {% endif %}
+    <p>{{ service.features|safe|linebreaksbr }}</p>
+    <a href="{% url 'book_service' %}" class="btn btn-primary">Book Now</a>
+</div>
 {% endblock %}

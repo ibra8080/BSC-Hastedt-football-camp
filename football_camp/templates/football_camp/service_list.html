@@ -4,10 +4,12 @@
 {% block title %}Service List{% endblock %}
 
 {% block content %}
-<h1>Services</h1>
-<ul>
-    {% for service in services %}
+<div class="container">
+    <h1>Services</h1>
+    <ul>
+        {% for service in services %}
         <li>{{ service.title }} - {{ service.focus }}</li>
-    {% endfor %}
-</ul>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

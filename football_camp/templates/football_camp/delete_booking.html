@@ -3,10 +3,13 @@
 {% block title %}Delete Booking{% endblock %}
 
 {% block content %}
-<h1>Are you sure you want to delete this booking for {{ booking.player.first_name }} {{ booking.player.last_name }}?</h1>
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Delete Booking</button>
-    <a href="{% url 'player_profile' player_id=booking.player.id %}" class="btn btn-secondary">Cancel</a>
-</form>
+<div class="container">
+    <h1>Are you sure you want to delete this booking for {{ booking.player.first_name }} {{ booking.player.last_name }}?
+    </h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete Booking</button>
+        <a href="{% url 'player_profile' player_id=booking.player.id %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
 {% endblock %}

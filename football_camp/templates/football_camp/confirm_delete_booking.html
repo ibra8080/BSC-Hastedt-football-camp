@@ -3,11 +3,14 @@
 {% block title %}Confirm Delete{% endblock %}
 
 {% block content %}
-<h1>Confirm Delete</h1>
-<p>Are you sure you want to delete the booking for {{ booking.player.first_name }} {{ booking.player.last_name }}?</p>
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Yes, delete</button>
-    <a href="{% url 'player_profile' player_id=booking.player.id %}" class="btn btn-secondary">Cancel</a>
-</form>
+<div class="container">
+    <h1>Confirm Delete</h1>
+    <p>Are you sure you want to delete the booking for {{ booking.player.first_name }} {{ booking.player.last_name }}?
+    </p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <a href="{% url 'player_profile' player_id=booking.player.id %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
 {% endblock %}

@@ -13,26 +13,28 @@
     {% block title %}Create Service{% endblock %}
 
     {% block content %}
-    <h1>Create a New Service</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <label for="title">Title:</label>
-        <input type="text" name="title" required>
-        <label for="focus">Focus:</label>
-        <input type="text" name="focus" required>
-        <label for="duration">Duration:</label>
-        <input type="text" name="duration" required>
-        <label for="features">Features:</label>
-        <textarea name="features" required></textarea>
-        <label for="training">Training:</label>
-        <select name="training">
-            <option value="skills">Skills</option>
-            <option value="fitness">Fitness</option>
-            <option value="tactics">Tactics</option>
-            <option value="all">All</option>
-        </select>
-        <button type="submit">Create Service</button>
-    </form>
+    <div class="container">
+        <h1>Create a New Service</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="title">Title:</label>
+            <input type="text" name="title" required>
+            <label for="focus">Focus:</label>
+            <input type="text" name="focus" required>
+            <label for="duration">Duration:</label>
+            <input type="text" name="duration" required>
+            <label for="features">Features:</label>
+            <textarea name="features" required></textarea>
+            <label for="training">Training:</label>
+            <select name="training">
+                <option value="skills">Skills</option>
+                <option value="fitness">Fitness</option>
+                <option value="tactics">Tactics</option>
+                <option value="all">All</option>
+            </select>
+            <button type="submit">Create Service</button>
+        </form>
+    </div>
     {% endblock %}
 </body>
 
