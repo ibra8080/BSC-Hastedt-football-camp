@@ -108,6 +108,9 @@ def book_service(request):
 @login_required
 def edit_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
+    if booking.user != request.user:
+        messages.error(request, "You do not have permission to edit this booking.")
+        return redirect('home')
     if request.method == 'POST':
         player_id = request.POST.get('player_id')
         service_ids = request.POST.getlist('service_ids')
@@ -122,14 +125,16 @@ def edit_booking(request, booking_id):
         booking.save()
         return redirect('player_profile', player_id=booking.player.id)
     
-    players = Player.objects.all()
+    players = Player.objects.filter(user=request.user)
     services = Service.objects.all()
     return render(request, 'football_camp/edit_booking.html', {'booking': booking, 'players': players, 'services': services})
-
 
 @login_required
 def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
+    if booking.user != request.user:
+        messages.error(request, "You do not have permission to delete this booking.")
+        return redirect('home')
     if request.method == 'POST':
         player_id = booking.player.id
         booking.delete()
@@ -140,6 +145,9 @@ def delete_booking(request, booking_id):
 @login_required
 def player_profile(request, player_id):
     player = get_object_or_404(Player.objects.select_related('user'), id=player_id)
+    if player.user != request.user:
+        messages.error(request, "You do not have permission to view this player's profile.")
+        return redirect('home')
     bookings = Booking.objects.filter(player=player).select_related('user').prefetch_related('services')
     return render(request, 'football_camp/player_profile.html', {'player': player, 'bookings': bookings})
 
