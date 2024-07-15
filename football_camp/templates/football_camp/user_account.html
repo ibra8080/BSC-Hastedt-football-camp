@@ -6,19 +6,22 @@
 <div class="container">
     <h1>Your Account</h1>
 
-    <h2>Username: {{ user.username }}</h2>
-
-    <h3>Your Players</h3>
+    <h2>Your Players</h2>
     <ul>
         {% for player in players %}
         <li>
-            <a href="{% url 'player_profile' player_id=player.id %}">{{ player.first_name }} {{ player.last_name }}</a>
-            - Age: {{ player.age }} - Gender: {{ player.get_gender_display }}
+            <a href="{% url 'player_profile' player.id %}">{{ player.first_name }} {{ player.last_name }}</a>
             <ul>
-                {% for booking in player.booking_set.all %}
-                <li>{{ booking.services.all.0.title }} - {{ booking.booking_date }}</li>
+                {% for booking in player.bookings.all %}
+                <li>
+                    <a href="{% url 'edit_booking' booking.id %}">Booking on {{ booking.booking_date }}</a>
+                    <a href="{% url 'edit_booking' booking.id %}" class="btn btn-secondary btn-sm">Edit</a>
+                    <a href="{% url 'delete_booking' booking.id %}" class="btn btn-danger btn-sm">Delete</a>
+                </li>
                 {% endfor %}
             </ul>
+            <a href="{% url 'edit_player' player.id %}" class="btn btn-secondary btn-sm">Edit Player</a>
+            <a href="{% url 'delete_player' player.id %}" class="btn btn-danger btn-sm">Delete Player</a>
         </li>
         {% endfor %}
     </ul>
