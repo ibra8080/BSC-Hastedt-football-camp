@@ -5,7 +5,7 @@ html, body {
 
 body {
     padding-top: 56px;
-    background-color: #ffffe5; 
+    background-color: #fff; 
 }
 
 main {
@@ -14,8 +14,9 @@ main {
 
 h2.title {
     padding-top: 20px;
-    color: blue;
+    color: #04325F;
 }
+
 /* hero */
 .hero {
     position: relative;
@@ -70,4 +71,11 @@ footer {
 footer .fab {
     color: #ffffe5;
     margin: 0px 10px 0px 10px;
+}
+
+/* responsive design */
+@media (max-width: 768px) {
+    .col-md-6 {
+        width: 100%;
+    }
 }
