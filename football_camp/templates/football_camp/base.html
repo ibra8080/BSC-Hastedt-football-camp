@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}BSC Hastedt Football Camp{% endblock %}</title>
@@ -7,7 +8,12 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
 </head>
+
 <body>
     <div class="wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -31,7 +37,8 @@
                     <li class="nav-item">
                         <form method="post" action="{% url 'logout' %}">
                             {% csrf_token %}
-                            <button type="submit" class="nav-link btn btn-link" style="cursor: pointer;">Logout ({{ user.username }})</button>
+                            <button type="submit" class="nav-link btn btn-link" style="cursor: pointer;">Logout
+                                ({{ user.username }})</button>
                         </form>
                     </li>
                     {% else %}
@@ -60,4 +67,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
