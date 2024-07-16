@@ -4,7 +4,8 @@ html, body {
 }
 
 body {
-    padding-top: 56px; 
+    padding-top: 56px;
+    background-color: #ffffe5; 
 }
 
 main {
@@ -30,11 +31,12 @@ h2 {
 
 .hero-content {
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(30, 30, 30, 0.5);
     padding: 20px;
+    width: 60%;
 }
 
 .hero-content h1, .hero-content .hero-slogan, .hero-content .hero-description {
@@ -46,11 +48,22 @@ h2 {
     margin-top: 10px;
 }
 
+.hero-content h1 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 /* footer */
 footer {
-    background-color: #343a40; 
-    color: white;
+    background-color: #04325F; 
+    color: #FFFFE5;
     text-align: center;
     padding: 1rem 0;
 }
 
+footer .fab {
+    color: #ffffe5;
+    margin: 0px 10px 0px 10px;
+}
