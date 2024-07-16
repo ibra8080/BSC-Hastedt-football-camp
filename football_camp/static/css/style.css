@@ -5,7 +5,7 @@ html, body {
 
 body {
     padding-top: 56px;
-    background-color: #fff; 
+    background-color: #ffffe5;
 }
 
 main {
@@ -62,7 +62,7 @@ h2.title {
 
 /* footer */
 footer {
-    background-color: #04325F; 
+    background-color: #04325F;
     color: #FFFFE5;
     text-align: center;
     padding: 1rem 0;
@@ -73,9 +73,19 @@ footer .fab {
     margin: 0px 10px 0px 10px;
 }
 
-/* responsive design */
-@media (max-width: 768px) {
-    .col-md-6 {
-        width: 100%;
+/* Responsive design */
+@media (max-width: 767.98px) {
+    .col-12 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    /* Adjust hero content for smaller screens */
+    .hero-content {
+        width: 90%;
+    }
+
+    .hero img {
+        height: auto;
     }
 }

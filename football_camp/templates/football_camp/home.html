@@ -4,7 +4,6 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-
 <div class="hero">
     <img src="{% static 'images/hero.jpg' %}" alt="BSC-Hastedt-football-camp" class="img-fluid">
     <div class="hero-content">
@@ -16,22 +15,21 @@
 
 <div class="container">
     <h2 class="title">Our Programs</h2>
-        <div class="row">
-            {% for service in services %}
-            <div class="col-12 col-sm-12 col-md-6">
-                <div class="card mb-4">
-                    {% if service.image %}
-                    <img class="card-img-top" src="{{ service.image.url }}" alt="{{ service.title }}">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ service.title }}</h5>
-                        <p class="card-text">{{ service.focus }}</p>
-                        <a href="{% url 'service_page' service.id %}" class="btn btn-primary">Learn More</a>
-                    </div>
+    <div class="row">
+        {% for service in services %}
+        <div class="col-12 col-md-6">
+            <div class="card mb-4">
+                {% if service.image %}
+                <img class="card-img-top" src="{{ service.image.url }}" alt="{{ service.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ service.title }}</h5>
+                    <p class="card-text">{{ service.focus }}</p>
+                    <a href="{% url 'service_page' service.id %}" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
-            {% endfor %}
         </div>
-    
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
