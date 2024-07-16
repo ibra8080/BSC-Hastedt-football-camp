@@ -1,25 +1,35 @@
 {% extends 'football_camp/base.html' %}
 
-{% block title %}Player Profile{% endblock %}
+{% block title %}{{ player.first_name }} {{ player.last_name }} Profile{% endblock %}
 
 {% block content %}
 <div class="container">
-    <!-- <h1>Player Profile: {{ player.first_name }} {{ player.last_name }}</h1> -->
-
-    <h2>Bookings for {{ player.first_name }}:</h2>
+    <h2>{{ player.first_name }} {{ player.last_name }}'s Profile</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <p><strong>Age:</strong> {{ player.age }}</p>
+            <p><strong>Height:</strong> {{ player.height }} cm</p>
+        </div>
+        <div class="col-md-4">
+            {% if player.pic %}
+                <img src="{{ player.pic.url }}" class="img-fluid" alt="{{ player.first_name }} {{ player.last_name }}">
+            {% endif %}
+        </div>
+    </div>
+    <h3>{{ player.first_name }}'s Programs</h3>
     <ul>
         {% for booking in bookings %}
-        <li>
-            <p>Booking Date: {{ booking.booking_date }}</p>
-            <p>Services:</p>
-            <ul>
-                {% for service in booking.services.all %}
-                <li>{{ service.title }}</li>
-                {% endfor %}
-            </ul>
-            <a href="{% url 'edit_booking' booking_id=booking.id %}" class="btn btn-secondary">Edit Booking</a>
-            <a href="{% url 'delete_booking' booking_id=booking.id %}" class="btn btn-danger">Delete Booking</a>
-        </li>
+            <li>
+                <p>Booking Date: {{ booking.booking_date }}</p>
+                <p>Services:</p>
+                <ul>
+                    {% for service in booking.services.all %}
+                        <li>{{ service.title }}</li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'edit_booking' booking_id=booking.id %}" class="btn btn-secondary">Edit Booking</a>
+                <a href="{% url 'delete_booking' booking_id=booking.id %}" class="btn btn-danger">Delete Booking</a>
+            </li>
         {% endfor %}
     </ul>
 </div>
