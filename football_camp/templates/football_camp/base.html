@@ -7,11 +7,12 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}">Football Camp</a>
+        <a class="navbar-brand" href="{% url 'home' %}">BSC Hastedt Football Camp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,31 +46,24 @@
             </ul>
         </div>
     </nav>
-
-    <div class="container mt-3">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            {% endfor %}
-        {% endif %}
+    <div class="content">
         {% block content %}
+        <!-- Content here -->
         {% endblock %}
     </div>
-
-    <footer class="text-center mt-4">
-        <a href="https://facebook.com" target="_blank" rel="nofollow noreferrer">Facebook</a>
-        <a href="https://twitter.com" target="_blank" rel="nofollow noreferrer">Twitter</a>
-        <a href="https://instagram.com" target="_blank" rel="nofollow noreferrer">Instagram</a>
+    <footer class="bg-dark text-white text-center mt-4 py-3">
+        <a href="https://facebook.com" target="_blank" rel="nofollow noreferrer" class="text-white">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="nofollow noreferrer" class="text-white">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="nofollow noreferrer" class="text-white">
+            <i class="fab fa-instagram"></i>
+        </a>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>
