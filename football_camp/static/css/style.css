@@ -109,7 +109,7 @@ h2.title {
     color: #1E1E1E; 
 }
 
-.login-container {
+.login-container, .register-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,6 +117,15 @@ h2.title {
 }
 
 
+/* Registration Page Styles */
+
+.justify-content-center {
+    width: 80vw;
+}
+
+.form-container {
+    width: 80vw !important;
+}
 
 /* footer */
 footer {
@@ -131,12 +140,4 @@ footer .fab {
     margin: 0px 10px 0px 10px;
 }
 
-/* Responsive design */
-@media (max-width: 767.98px) {
-    .col-12 {
-        max-width: 100%;
-        flex: 0 0 100%;
-    }
-
-}
 
