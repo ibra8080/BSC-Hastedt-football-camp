@@ -2,11 +2,13 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Player, Profile
+from django.core.validators import RegexValidator
+
 
 # Custom user creation form
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    telephone = forms.CharField(max_length=15)
+    telephone = forms.CharField(max_length=15, validators=[RegexValidator(regex=r'^\d+$', message='Telephone must be numeric.')])
     address = forms.CharField(max_length=255)
 
     class Meta:
