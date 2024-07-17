@@ -12,6 +12,11 @@ main {
     flex: 1;
 }
 
+.logo-img-nav {
+    height: 50px;
+    margin-left: 20px;
+}
+
 h2.title {
     padding-top: 20px;
     color: #04325F;
