@@ -1,7 +1,8 @@
 html, body {
-    
     margin: 0;
+    height: 100%;
 }
+
 .wrapper {
     display: flex;
     min-height: 100vh;
@@ -9,12 +10,8 @@ html, body {
     justify-content: space-between;
 }
 
-/* body {
-    padding-top: 70px;
-} */
-
 .flex-shrink-0 {
-    padding-top: 85px;
+    padding-top: 75px;
 }
 
 main {
@@ -74,6 +71,53 @@ h2.title {
     text-transform: uppercase;
 }
 
+/* Login Page Styles */
+.card-header {
+    background-color: #ffeb00 !important; 
+    color: #04325F; 
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-body form {
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: #04325F !important; 
+    border: none !important;
+    color: #FFFFFF; 
+    padding: 0.75rem;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 0;
+}
+
+.btn-primary:hover {
+    background-color: #1E1E1E; 
+    color: #FFFFE5; 
+}
+
+.text-center a {
+    color: #04325F; 
+    text-decoration: underline;
+}
+
+.text-center a:hover {
+    color: #1E1E1E; 
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+
+
 /* footer */
 footer {
     background-color: #04325F;
@@ -94,12 +138,5 @@ footer .fab {
         flex: 0 0 100%;
     }
 
-    /* Adjust hero content for smaller screens */
-    .hero-content {
-        width: 90%;
-    }
-
-    .hero img {
-        height: auto;
-    }
 }
+
