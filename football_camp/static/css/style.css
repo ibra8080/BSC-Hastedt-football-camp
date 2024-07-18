@@ -87,6 +87,14 @@ h2.title {
     margin-bottom: 1rem;
 }
 
+.card-body input {
+    width: 100%;
+}
+
+.card-body label {
+    font-size: 1.3rem;
+}
+
 .btn-primary {
     background-color: #04325F !important;
     border: none !important;
@@ -123,6 +131,7 @@ h2.title {
     width: 90%;
     max-width: 500px;
     margin: auto;
+    margin-bottom: 1rem;
 }
 
 .form-group {
@@ -213,7 +222,7 @@ ul li a {
 
 ul li a:hover {
     text-decoration: underline;
-    color: #1E1E1E;
+    color: #66666e;
 }
 
 /* footer */
