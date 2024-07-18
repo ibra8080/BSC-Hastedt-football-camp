@@ -1,34 +1,49 @@
 {% extends 'football_camp/base.html' %}
 
 {% block content %}
-<div class="container">
-    <h1>Manage Players</h1>
+<div class="container register-container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card mt-5">
+                <div class="card-header text-center">
+                    <h2>Add Player</h2>
+                </div>
+                <div class="card-body">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-info">{{ message }}</div>
+                    {% endfor %}
+                    {% endif %}
 
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-info">{{ message }}</div>
-    {% endfor %}
-    {% endif %}
+                    {% if success %}
+                    <div class="alert alert-success">
+                        Your player was successfully added.
+                        <a href="{% url 'manage_players' %}">Add another player</a> or
+                        <a href="{% url 'book_service' %}">Go to booking services</a>.
+                    </div>
+                    {% endif %}
 
-    {% if success %}
-    <div class="alert alert-success">
-        Your player was successfully added.
-        <a href="{% url 'manage_players' %}">Add another player</a> or
-        <a href="{% url 'book_service' %}">Go to booking services</a>.
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary same-size">Add Player</button>
+                            <a href="{% url 'book_service' %}" class="btn btn-primary same-size">Book Now</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h2>Your Players</h2>
+                    <ul>
+                        {% for player in players %}
+                        <li><a href="{% url 'player_profile' player.id %}">{{ player.first_name }} {{ player.last_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    {% endif %}
-
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Add Player</button>
-    </form>
-
-    <h2>Your Players</h2>
-    <ul>
-        {% for player in players %}
-        <li>{{ player.first_name }} {{ player.last_name }}</li>
-        {% endfor %}
-    </ul>
 </div>
 {% endblock %}

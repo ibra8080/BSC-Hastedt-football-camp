@@ -111,7 +111,8 @@ h2.title {
     color: #1E1E1E;
 }
 
-.login-container {
+.login-container,
+.register-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,6 +176,46 @@ h2.title {
     color: #66666e;
 }
 
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.same-size {
+    background-color: #04325F !important;
+    border: none !important;
+    color: #FFFFFF;
+    padding: 0.75rem;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+}
+
+.same-size:hover {
+    background-color: #1E1E1E;
+    color: #FFFFE5;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #04325F;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+    color: #1E1E1E;
+}
+
 /* footer */
 footer {
     background-color: #04325F;
@@ -215,4 +256,3 @@ footer .fab {
         font-size: 1.2em; 
     }
 }
-
