@@ -275,6 +275,7 @@ footer .fab {
 .btn-primary {
     width: 100%;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 
@@ -321,9 +322,35 @@ footer .fab {
     text-align: center;
 }
 
+/* Service Page Styles */
+.container {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.container h2 {
+    color: #04325F;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
+
+.container img {
+    width: 100vw;
+    margin-bottom: 1rem;
+}
+
+.container ul {
+    display: flex;
+    align-self: center;
+    line-height: 1.6;
+    width: 100%;
+    font-size: 24px !important;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
 
 /* Responsive form styling */
-@media (max-width: 767.98px) {
+@media (max-width: 760px) {
     .form-group label,
     .form-group input,
     .form-group select,
