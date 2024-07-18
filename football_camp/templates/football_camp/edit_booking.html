@@ -4,30 +4,44 @@
 
 {% block content %}
 <div class="container">
-    <h1>Edit Booking</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="player_id">Player:</label>
-            <select name="player_id" id="player_id" class="form-control">
-                {% for player in players %}
-                <option value="{{ player.id }}" {% if player == booking.player %}selected{% endif %}>
-                    {{ player.first_name }} {{ player.last_name }}
-                </option>
-                {% endfor %}
-            </select>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card mt-5">
+                <div class="card-header text-center">
+                    <h2>Edit Booking</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="player_id">Player:</label>
+                            <select name="player_id" id="player_id" class="form-control">
+                                {% for player in players %}
+                                <option value="{{ player.id }}" {% if player == booking.player %}selected{% endif %}>
+                                    {{ player.first_name }} {{ player.last_name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="services">Select Services:</label>
+                            {% for service in services %}
+                            <div class="form-check form-check-inline full-width">
+                                <input class="form-check-input" type="checkbox" name="service_ids" value="{{ service.id }}" 
+                                id="service_{{ service.id }}" {% if service in booking.services.all %}checked{% endif %}>
+                                <label class="form-check-label" for="service_{{ service.id }}">
+                                    {{ service.title }}
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="service_ids">Services:</label>
-            <select name="service_ids" id="service_ids" class="form-control" multiple>
-                {% for service in services %}
-                <option value="{{ service.id }}" {% if service in booking.services.all %}selected{% endif %}>
-                    {{ service.title }}
-                </option>
-                {% endfor %}
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-    </form>
+    </div>
 </div>
 {% endblock %}

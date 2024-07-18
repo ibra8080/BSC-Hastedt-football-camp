@@ -297,6 +297,12 @@ footer .fab {
     margin-left: 10px;
 }
 
+/* Player Profile */
+.btn-secondary {
+    background-color: #ffeb00 !important;
+    color: #04325F !important;
+}
+
 
 /* Responsive form styling */
 @media (max-width: 767.98px) {
