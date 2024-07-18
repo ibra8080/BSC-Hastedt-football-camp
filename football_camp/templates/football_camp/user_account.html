@@ -4,26 +4,27 @@
 
 {% block content %}
 <div class="container">
-    <h1>Your Account</h1>
-
-    <h2>Your Players</h2>
-    <ul>
-        {% for player in players %}
-        <li>
-            <a href="{% url 'player_profile' player.id %}">{{ player.first_name }} {{ player.last_name }}</a>
-            <ul>
-                {% for booking in player.bookings.all %}
-                <li>
-                    <a href="{% url 'edit_booking' booking.id %}">Booking on {{ booking.booking_date }}</a>
-                    <a href="{% url 'edit_booking' booking.id %}" class="btn btn-secondary btn-sm">Edit</a>
-                    <a href="{% url 'delete_booking' booking.id %}" class="btn btn-danger btn-sm">Delete</a>
-                </li>
-                {% endfor %}
-            </ul>
-            <a href="{% url 'edit_player' player.id %}" class="btn btn-secondary btn-sm">Edit Player</a>
-            <a href="{% url 'delete_player' player.id %}" class="btn btn-danger btn-sm">Delete Player</a>
-        </li>
-        {% endfor %}
-    </ul>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card mt-5">
+                <div class="card-header text-center">
+                    <h2>{{ user.username }}'s Players</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for player in players %}
+                        <li class="list-group-item">
+                            <a href="{% url 'player_profile' player.id %}">{{ player.first_name }} {{ player.last_name }}</a>
+                            <div class="mt-2">
+                                <a href="{% url 'edit_player' player.id %}" class="btn btn-secondary btn-sm">Edit Player</a>
+                                <a href="{% url 'delete_player' player.id %}" class="btn btn-danger btn-sm">Delete Player</a>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -303,6 +303,24 @@ footer .fab {
     color: #04325F !important;
 }
 
+/* User account */
+.list-group-item {
+    margin-bottom: 1rem;
+}
+
+.list-group-item ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
 
 /* Responsive form styling */
 @media (max-width: 767.98px) {
