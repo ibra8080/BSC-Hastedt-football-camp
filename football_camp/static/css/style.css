@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
     margin: 0;
     height: 100%;
 }
@@ -76,9 +75,8 @@ h2.title {
 
 /* Home */
 .home-card {
-    max-width: 100% ;
+    max-width: 100%;
 }
-
 
 /* Form Styles */
 .card-header {
@@ -285,7 +283,6 @@ footer .fab {
     margin-bottom: 1rem;
 }
 
-
 .form-check-input {
     margin-right: 10px;
     transform: scale(1.5);
@@ -297,8 +294,6 @@ footer .fab {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
-
-
 
 .form-check-label {
     font-size: 1.5em;
@@ -358,64 +353,8 @@ footer .fab {
 }
 
 /* Responsive form styling */
-@media (max-width: 760px) {
-
-    .form-group label,
-    .form-group input,
-    .form-group select,
-    .form-group textarea,
-    .btn-primary {
-        width: 100%;
-    }
-
-    .card-body {
-        padding: 1rem;
-    }
-
-    .form-group label,
-    .form-group input::placeholder,
-    .form-group select,
-    .form-group textarea {
-        font-size: 1.3em;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        font-size: 1.2em;
-    }
-
-    .form-group label,
-    .form-group input,
-    .form-group select,
-    .form-group textarea,
-    .btn-primary {
-        width: 100%;
-    }
-
-    .card-body {
-        padding: 1rem;
-    }
-
-    .form-group label,
-    .form-group input::placeholder,
-    .form-group select,
-    .form-group textarea {
-        font-size: 1.3em;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        font-size: 1.2em;
-    }
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 768px) { 
+   
 }
 
-@media only screen and (min-width: 768px) {
-    .img-service {
-        width: 100%;
-        height: auto !important; 
-        margin-bottom: 1rem;
-    }
-
-}
