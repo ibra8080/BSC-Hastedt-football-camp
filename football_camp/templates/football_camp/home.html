@@ -17,7 +17,7 @@
     <h2 class="title">Our Programs</h2>
     <div class="row">
         {% for service in services %}
-        <div class="col-12 col-md-6">
+        <div class="col-6 col-sm-6 home-cards">
             <div class="card mb-4">
                 {% if service.image %}
                 <img class="card-img-top" src="{{ service.image.url }}" alt="{{ service.title }}">

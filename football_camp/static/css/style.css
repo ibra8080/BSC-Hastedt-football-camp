@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0;
     height: 100%;
 }
@@ -72,6 +73,12 @@ h2.title {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+
+/* Home */
+.home-card {
+    max-width: 100% ;
+}
+
 
 /* Form Styles */
 .card-header {
@@ -158,13 +165,13 @@ h2.title {
 .form-group input::placeholder,
 .form-group select,
 .form-group textarea {
-    font-size: 1.5em; 
+    font-size: 1.5em;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    font-size: 1.2em; 
+    font-size: 1.2em;
 }
 
 .show-password-container {
@@ -334,23 +341,25 @@ footer .fab {
     margin-top: 3rem;
 }
 
-.container img {
-    width: 100vw;
+.img-service {
+    height: 50vh !important;
+    object-fit: cover;
     margin-bottom: 1rem;
 }
 
 .container ul {
     display: flex;
-    align-self: center;
-    line-height: 1.6;
+    flex-direction: column;
+    line-height: 1.8;
     width: 100%;
-    font-size: 24px !important;
+    font-size: 1.5rem !important;
     text-align: justify;
     margin-bottom: 1rem;
 }
 
 /* Responsive form styling */
 @media (max-width: 760px) {
+
     .form-group label,
     .form-group input,
     .form-group select,
@@ -367,13 +376,13 @@ footer .fab {
     .form-group input::placeholder,
     .form-group select,
     .form-group textarea {
-        font-size: 1.3em; 
+        font-size: 1.3em;
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
-        font-size: 1.2em; 
+        font-size: 1.2em;
     }
 
     .form-group label,
@@ -400,4 +409,13 @@ footer .fab {
     .form-group textarea {
         font-size: 1.2em;
     }
+}
+
+@media only screen and (min-width: 768px) {
+    .img-service {
+        width: 100%;
+        height: auto !important; 
+        margin-bottom: 1rem;
+    }
+
 }
