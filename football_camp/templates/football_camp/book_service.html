@@ -1,34 +1,46 @@
-<!-- templates/football_camp/book_service.html -->
 {% extends 'football_camp/base.html' %}
 
 {% block title %}Book Service{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1>Book a Service</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="player">Select Player:</label>
-            <select name="player_id" id="player" class="form-control">
-                {% for player in players %}
-                <option value="{{ player.id }}">{{ player.first_name }} {{ player.last_name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="services">Select Services:</label>
-            {% for service in services %}
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="service_ids" value="{{ service.id }}"
-                    id="service_{{ service.id }}">
-                <label class="form-check-label" for="service_{{ service.id }}">
-                    {{ service.title }}
-                </label>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card mt-5">
+                <div class="card-header text-center">
+                    <h2>Book a Service</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="player">Select Player:</label>
+                            <select name="player_id" id="player" class="form-control">
+                                {% for player in players %}
+                                <option value="{{ player.id }}">{{ player.first_name }} {{ player.last_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="services">Select Services:</label>
+                            {% for service in services %}
+                            <div class="form-check form-check-inline full-width">
+                                <input class="form-check-input" type="checkbox" name="service_ids" value="{{ service.id }}"
+                                    id="service_{{ service.id }}">
+                                <label class="form-check-label" for="service_{{ service.id }}">
+                                    {{ service.title }}
+                                </label>
+                                
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Book</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            {% endfor %}
         </div>
-        <button type="submit" class="btn btn-primary">Book</button>
-    </form>
+    </div>
 </div>
 {% endblock %}

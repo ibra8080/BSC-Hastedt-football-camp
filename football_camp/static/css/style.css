@@ -128,9 +128,7 @@ h2.title {
 }
 
 .register-container .card {
-    width: 90%;
-    max-width: 500px;
-    margin: auto;
+    width: 100%;
     margin-bottom: 1rem;
 }
 
@@ -233,10 +231,72 @@ footer {
     padding: 1rem 0;
 }
 
+.errorlist {
+    color: red;
+}
+
 footer .fab {
     color: #ffffe5;
     margin: 0px 10px 0px 10px;
 }
+
+/* Book Service Page Styles */
+.justify-content-center {
+    margin-bottom: 1rem;
+}
+
+.register-container .card {
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    width: 100% !important;
+}
+
+.form-group select,
+.form-group .form-check-input {
+    width: 50px;
+}
+
+.btn-primary {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+
+.form-check-input {
+    margin-right: 10px;
+    transform: scale(1.5);
+}
+
+.form-check {
+    display: flex !important;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+
+.form-check-label {
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
 
 /* Responsive form styling */
 @media (max-width: 767.98px) {
@@ -263,5 +323,30 @@ footer .fab {
     .form-group select,
     .form-group textarea {
         font-size: 1.2em; 
+    }
+
+    .form-group label,
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .btn-primary {
+        width: 100%;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .form-group label,
+    .form-group input::placeholder,
+    .form-group select,
+    .form-group textarea {
+        font-size: 1.3em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 1.2em;
     }
 }
