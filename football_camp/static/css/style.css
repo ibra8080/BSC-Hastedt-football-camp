@@ -3,6 +3,17 @@ html, body {
     height: 100%;
 }
 
+p {
+    font-size: 1.5rem;
+}
+
+.container h2 {
+    color: #04325F;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
+}
+
 .wrapper {
     display: flex;
     min-height: 100vh;
@@ -25,8 +36,14 @@ main {
 
 h2.title {
     padding-top: 20px;
-    color: #04325F;
 }
+
+.nav-item {
+    font-size: 1.3rem;
+    padding-left: 5px;
+}
+
+
 /* -------------------------------- Home */
 
 .hero {
@@ -75,6 +92,11 @@ h2.title {
 
 .home-card {
     max-width: 100%;
+}
+
+.card-title {
+    color: #04325F;
+    font-weight: 600;
 }
 
 /* -------------------------------- Form Styles */
@@ -227,22 +249,6 @@ ul li a:hover {
     color: #66666e;
 }
 
-/* footer */
-footer {
-    background-color: #04325F;
-    color: #FFFFE5;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-.errorlist {
-    color: red;
-}
-
-footer .fab {
-    color: #ffffe5;
-    margin: 0px 10px 0px 10px;
-}
 
 /* -------------------------------- Book Service */
 .justify-content-center {
@@ -329,11 +335,6 @@ footer .fab {
     width: 100%;
 }
 
-.container h2 {
-    color: #04325F;
-    margin-bottom: 3rem;
-    margin-top: 3rem;
-}
 
 .img-service {
     height: 50vh;
@@ -353,7 +354,47 @@ footer .fab {
     margin-bottom: 1rem;
 }
 
-/* Responsive form styling */
-/* // Small devices (landscape phones, 576px and up) */
+/* -------------------------------- footer */
+footer {
+    background-color: #04325F;
+    color: #FFFFE5;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.errorlist {
+    color: red;
+}
+
+footer .fab {
+    color: #ffffe5;
+    margin: 0px 20px 0px 20px;
+}
+
+.footer a {
+    color: inherit; 
+    transition: color 0.3s ease; 
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ffeb00;
+    text-decoration: none;
+}
+
+.copy-right {
+    font-size: 0.7rem;
+}
+
+/* -------------------------------- For Larg screen */
+
+@media (min-width: 992px) {
+    .nav-item {
+        font-size: 1.1rem;
+        padding-left: 0px;
+        display: flex;
+        margin-top: 2px;
+    }
+}
 
 

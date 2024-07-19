@@ -23,7 +23,7 @@
                 <img class="card-img-top" src="{{ service.image.url }}" alt="{{ service.title }}">
                 {% endif %}
                 <div class="card-body">
-                    <h5 class="card-title">{{ service.title }}</h5>
+                    <h4 class="card-title">{{ service.title }}</h4>
                     <p class="card-text">{{ service.focus }}</p>
                     <a href="{% url 'service_page' service.id %}" class="btn btn-primary">Learn More</a>
                 </div>
