@@ -20,6 +20,8 @@
                                 <a href="{% url 'delete_player' player.id %}" class="btn btn-danger btn-sm">Delete Player</a>
                             </div>
                         </li>
+                        {% empty %}
+                            <li class="warning">You currently don't have any players listed. Add a player to proceed.</li>
                         {% endfor %}
                     </ul>
                 </div>
