@@ -1,7 +1,8 @@
 from pathlib import Path
 import os
 import dj_database_url
-if os.path.isfile ("env.py"):
+
+if os.path.isfile("env.py"):
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -69,21 +70,13 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if os.environ.get("USE_SQLITE", "True") == "True":
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
-        'default': dj_database_url.parse(
-            os.environ.get("DATABASE_URL"),
-            conn_max_age=600,  # 10 minutes
-            ssl_require=True,
-        )
-    }
+DATABASES = {
+    'default': dj_database_url.parse(
+        'postgres://uct1b7j6rj0:sTcQSZdD5vip@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/jumbo_half_lazy_466620',
+        conn_max_age=600,
+        ssl_require=True,
+    )
+}
 
 if DATABASES['default']['ENGINE'] == 'django.db.backends.postgresql':
     DATABASES['default']['OPTIONS'] = {
