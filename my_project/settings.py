@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.parse(
-        'postgres://uct1b7j6rj0:sTcQSZdD5vip@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/jumbo_half_lazy_466620',
+        'postgres://uct1b7j6rj0:sTcQSZdD5vip@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/jumbo_half_lazy_466620',
         conn_max_age=600,
         ssl_require=True,
     )
