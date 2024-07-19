@@ -15,9 +15,9 @@
 
 <div class="container">
     <h2 class="title">Our Programs</h2>
-    <div class="row row-table">
+    <div class="row">
         {% for service in services %}
-        <div class="col-sm-12 col-lg-6">
+        <div class="col-sm-12 col-lg-6 row-table">
             <div class="card mb-4">
                 {% if service.image %}
                 <img class="card-img-top" src="{{ service.image.url }}" alt="{{ service.title }}">
