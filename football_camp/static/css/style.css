@@ -27,8 +27,8 @@ h2.title {
     padding-top: 20px;
     color: #04325F;
 }
+/* -------------------------------- Home */
 
-/* hero */
 .hero {
     position: relative;
     text-align: center;
@@ -73,12 +73,11 @@ h2.title {
     text-transform: uppercase;
 }
 
-/* Home */
 .home-card {
     max-width: 100%;
 }
 
-/* Form Styles */
+/* -------------------------------- Form Styles */
 .card-header {
     background-color: #ffeb00 !important;
     color: #04325F;
@@ -245,7 +244,7 @@ footer .fab {
     margin: 0px 10px 0px 10px;
 }
 
-/* Book Service Page Styles */
+/* -------------------------------- Book Service */
 .justify-content-center {
     margin-bottom: 1rem;
 }
@@ -300,13 +299,13 @@ footer .fab {
     margin-left: 10px;
 }
 
-/* Player Profile */
+/* -------------------------------- Player Profile */
 .btn-secondary {
     background-color: #ffeb00 !important;
     color: #04325F !important;
 }
 
-/* User account */
+/* -------------------------------- User account */
 .list-group-item {
     margin-bottom: 1rem;
 }
@@ -324,7 +323,7 @@ footer .fab {
     text-align: center;
 }
 
-/* Service Page Styles */
+/* -------------------------------- Service Page */
 .container {
     margin-top: 2rem;
     width: 100%;
@@ -337,7 +336,9 @@ footer .fab {
 }
 
 .img-service {
-    height: 50vh !important;
+    height: 50vh;
+    min-height: 500px;
+    width: 100%;
     object-fit: cover;
     margin-bottom: 1rem;
 }
@@ -354,7 +355,5 @@ footer .fab {
 
 /* Responsive form styling */
 /* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 768px) { 
-   
-}
+
 

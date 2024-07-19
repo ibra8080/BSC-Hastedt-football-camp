@@ -6,7 +6,7 @@
     <div class="container">
         <h2>{{ service.title }}</h2>
         {% if service.image %}
-        <img src="{{ service.image.url }}" alt="{{ service.title }}" class="img-fluid img-service">
+        <img src="{{ service.image.url }}" alt="{{ service.title }}" class=" img-service">
         {% endif %}
         <p>{{ service.features|safe|linebreaksbr }}</p>
         <a href="{% url 'book_service' %}" class="btn btn-primary">Book Now</a>
