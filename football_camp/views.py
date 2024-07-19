@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from .models import Service, Player, Booking
@@ -91,7 +91,7 @@ def book_service(request):
         player_id = request.POST.get('player_id')
         service_ids = request.POST.getlist('service_ids')
 
-        player = get_object_or_404(Player, id=player_id)
+        player = get_object_or_404(Player, id=player_id, user=user)
         booking = Booking.objects.create(user=user, player=player)
 
         for service_id in service_ids:
@@ -107,15 +107,12 @@ def book_service(request):
 
 @login_required
 def edit_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
-    if booking.user != request.user:
-        messages.error(request, "You do not have permission to edit this booking.")
-        return redirect('home')
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
     if request.method == 'POST':
         player_id = request.POST.get('player_id')
         service_ids = request.POST.getlist('service_ids')
         
-        booking.player = get_object_or_404(Player, id=player_id)
+        booking.player = get_object_or_404(Player, id=player_id, user=request.user)
         booking.services.clear()
         
         for service_id in service_ids:
@@ -129,12 +126,10 @@ def edit_booking(request, booking_id):
     services = Service.objects.all()
     return render(request, 'football_camp/edit_booking.html', {'booking': booking, 'players': players, 'services': services})
 
+
 @login_required
 def delete_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
-    if booking.user != request.user:
-        messages.error(request, "You do not have permission to delete this booking.")
-        return redirect('home')
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
     if request.method == 'POST':
         player_id = booking.player.id
         booking.delete()
@@ -144,17 +139,13 @@ def delete_booking(request, booking_id):
 
 @login_required
 def player_profile(request, player_id):
-    player = get_object_or_404(Player.objects.select_related('user'), id=player_id)
-    if player.user != request.user:
-        messages.error(request, "You do not have permission to view this player's profile.")
-        return redirect('home')
+    player = get_object_or_404(Player, id=player_id, user=request.user)
     bookings = Booking.objects.filter(player=player).select_related('user').prefetch_related('services')
     return render(request, 'football_camp/player_profile.html', {'player': player, 'bookings': bookings})
 
 
 @login_required
 def view_training_schedule(request):
-    # Assuming you have a TrainingSchedule model
     schedule = TrainingSchedule.objects.all()
     return render(request, 'football_camp/view_training_schedule.html', {'schedule': schedule})
 
@@ -266,3 +257,4 @@ def delete_player(request, player_id):
         messages.success(request, 'Player deleted successfully.')
         return redirect('user_account')
     return render(request, 'football_camp/confirm_delete_player.html', {'player': player})
+
