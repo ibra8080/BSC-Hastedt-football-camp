@@ -46,14 +46,10 @@ I used [coolors.co](https://coolors.co/00305e-ffffe5-1e1e1e-ffed00) to generate 
 - [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
 ## User Stories
-
 ### New Site Users (Parent) 
-
 - As a parent, I can create an account so that I can add my children for the football camp.
 - As a parent, I can view available football training services so that I can choose one that fits my needs.
-
 ### Returning Site Users (Parent)
-
 - As a parent, I can log in so that I can access my account and manage my profile and bookings.
 - As a parent, I can log out so that I can securely end my session.
 - As a parent I can update my profile information so that my details are always current.
@@ -69,110 +65,38 @@ I used [coolors.co](https://coolors.co/00305e-ffffe5-1e1e1e-ffed00) to generate 
 - As an admin, I can view all bookings so that I can manage and oversee the booking system efficiently.
 
 ## Wireframes
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-In this section, display your wireframe screenshots using a Markdown `table`.
-Instructions on how to do Markdown `tables` start on line #213 on this site: https://pandao.github.io/editor.md/en.html
-
-Alternatively, dropdowns are a way to condense several wireframes into a collapsible menu to save space.
-Dropdowns in Markdown are considered some of the only acceptable HTML components that are allowed for assessment purposes.
-
-⚠️ **IMPORTANT**! ⚠️ **IMPORTANT**! ⚠️ **IMPORTANT**! ⚠️
-The example below uses the `details` and `summary` code elements.
-However, for these scripts to work, I've had to add spaces within the `< >` elements.
-
-You MUST remove these spaces for it to work properly on your own README/TESTING files.
-Remove the spaces within the `< >` brackets for the `details` and `summary` code elements,
-for the Mobile, Tablet, and Desktop wireframes.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
-I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
+To follow best practice, wireframes were developed for mobile and desktop sizes.
+I've used [Figma](https://www.figma.com) to design my site wireframes.
 
 ### Mobile Wireframes
 
-< details >
-< summary > Click here to see the Mobile Wireframes < / summary >
-
+<details>
+<summary> Click here to see the Mobile Wireframes </summary>
 Home
-  - ![screenshot](documentation/wireframes/mobile-home.png)
+  - ![screenshot](documentation/wirframes/mobile-home.png)
 
-About
-  - ![screenshot](documentation/wireframes/mobile-about.png)
+Add player form
+  - ![screenshot](documentation/wirframes/mobile-form.png)
 
-Contact
-  - ![screenshot](documentation/wireframes/mobile-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/mobile-gallery.png)
-
-etc.
-  - repeat for any remaining mobile wireframes
-
-< / details >
-
-### Tablet Wireframes
-
-< details >
-< summary > Click here to see the Tablet Wireframes < / summary >
-
-Home
-  - ![screenshot](documentation/wireframes/tablet-home.png)
-
-About
-  - ![screenshot](documentation/wireframes/tablet-about.png)
-
-Contact
-  - ![screenshot](documentation/wireframes/tablet-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/tablet-gallery.png)
-
-etc.
-  - repeat for any remaining tablet wireframes
-
-< / details >
+service page
+  - ![screenshot](documentation/wirframes/mobile-service.png)
+</details>
 
 ### Desktop Wireframes
-
-< details >
-< summary > Click here to see the Desktop Wireframes < / summary >
+<details>
+<summary> Click here to see the Desktop Wireframes </summary>
 
 Home
-  - ![screenshot](documentation/wireframes/desktop-home.png)
+  - ![screenshot](documentation/wirframes/desktop-home.png)
 
-About
-  - ![screenshot](documentation/wireframes/desktop-about.png)
+Form
+  - ![screenshot](documentation/wirframes/desktop-form.png)
 
-Contact
-  - ![screenshot](documentation/wireframes/desktop-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/desktop-gallery.png)
-
-etc.
-  - repeat for any remaining desktop wireframes
-
-< / details >
+Service
+  - ![screenshot](documentation/wirframes/desktop-service.png)
+</details>
 
 ## Features
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-In this section, you should go over the different parts of your project,
-and describe each in a sentence or so.
-
-You will need to explain what value each of the features provides for the user,
-focusing on who this website is for, what it is that they want to achieve,
-and how your project is the best way to help them achieve these things.
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-IMPORTANT: Remember to always include a screenshot of each individual feature!
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ### Existing Features
 
