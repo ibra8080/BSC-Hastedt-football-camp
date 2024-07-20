@@ -4,94 +4,23 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/ibra8080/BSC-Hastedt-football-camp)](https://github.com/ibra8080/BSC-Hastedt-football-camp/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/ibra8080/BSC-Hastedt-football-camp)](https://github.com/ibra8080/BSC-Hastedt-football-camp)
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
-
-!! IMPORTANT !! RE: Table of Contents
-
-DO NOT add a Table of Contents to your README or TESTING!!
-These are outdated since 2021 when GitHub added them built-in to Markdown files automatically.
-
-Assessors see this as bad practice since it's outdated for a few years now,
-as if you've taken it from someone else's project that did the same thing.
-
----
-
-In this section, you will include a few paragraphs providing an overview of your project.
-Essentially, this part is your "sales pitch".
-
-At this stage, you should have a name for your project so use it!
-Don't introduce the project as a "portfolio project" for the diploma.
-
-In this section, describe what the project hopes to accomplish, who it is intended to target, and how it will be useful to the target audience.
-
-Consider adding a mockup image using the "Am I Responsive" website.
-Here's your deployed site as an example:
-https://ui.dev/amiresponsive?url=https://hastedt-football-camp-9eb422a0dbcf.herokuapp.com
-
-⚠️ NOTE: Issues generating site mockups (Django projects)
-This is likely due to security policies with your deployed site.
-If you open up your dev tools, there may be an error referencing `X-Frame-Options`.
-For Chrome users, head over to http://bit.ly/3iRPn4u and install the extension within your browser.
-Once installed, navigate back to the site above.
-You should find your site rendering in the various devices.
-Alternatively, open your project in Gitpod and run the server.
-Once the site is running, click the `Ports` tab at the bottom of your Gitpod workspace (Ports: 2205, 05432, 8000... ).
-Click the padlock on port `8000`.
-This will make your local page public temporarily.
-Now copy the URL of your live-preview page into the responsive tool above.
-You should find your site rendering in the various devices.
-
-Screenshots for the README and testing should not be inside of `assets/` or `static/` image folders.
-(reminder: `assets/` and `static/` are for files used on the live site, not documentation)
-Consider adding a new folder called `documentation`, and add the amiresponsive screenshot inside of that folder.
-To add the image into your README, use this format:
-(assuming you have a new folder called `documentation` with an image called "mockup.png")
-
-![screenshot](documentation/mockup.png)
-
-Note: Markdown files (.md) should not contain HTML elements like `img`, `br`, `div`, `a`, etc, only Markdown formatting.
-Find out more about using Markdown elements here:
-https://pandao.github.io/editor.md/en.html
-
----
-
-GitHub now supports CALLOUTS in Markdown files.
-There are some callouts already embedded in this application for you.
-However, if you feel that you want to add more, there are certain ones you can use.
-
-NOTE: the preview for callouts isn't yet supported in Gitpod/Codeanywhere/VSCode/etc.
-You'll have to commit/push the changes to GitHub to see it in action.
-
-> [!NOTE]  
-> BLUE: Highlights information that users should take into account, even when skimming.
-
-> [!TIP]  
-> GREEN: Optional information to help a user be more successful.
-
-> [!IMPORTANT]  
-> PURPLE: Crucial information necessary for users to succeed.
-
-> [!WARNING]  
-> YELLOW: Critical content demanding immediate user attention due to potential risks.
-
-> [!CAUTION]  
-> RED: Negative potential consequences of an action.
-
-Source: https://github.com/orgs/community/discussions/16925
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ![screenshot](documentation/mockup.png)
 
 source: [amiresponsive](https://ui.dev/amiresponsive?url=https://hastedt-football-camp-9eb422a0dbcf.herokuapp.com)
 
+## Project Description
+
+Welcome to **BSC Hastedt Football Camp**, a comprehensive and engaging platform designed to enhance the football skills of young players. Our project is a dedicated hub for parents and guardians to manage their children's participation in various football training programs offered by BSC Hastedt.
+
+The platform provides a seamless experience for booking services, managing player profiles, and tracking progress through personalized training schedules. With a focus on skill development, fitness training, and tactical strategies, our camp ensures a well-rounded approach to football education.
+
+Parents can easily register, book services, and monitor their child's development, while administrators have robust tools to manage services and bookings efficiently. The platform is built with user-friendliness in mind, ensuring a smooth experience for all users.
+
+Join us at BSC Hastedt Football Camp, where we nurture the next generation of football champions with dedication and excellence.
+
 ## UX
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
-
-In this section, you will briefly explain your design processes.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+The design process for **BSC Hastedt Football Camp** focused on creating a user-friendly and accessible platform for parents, young players, and administrators. The primary goal was to ensure that users could easily navigate the site, book services, and manage player profiles. The interface was designed to be intuitive and responsive, providing a seamless experience across different devices. Special attention was given to accessibility, ensuring that the platform is usable by a wide range of users, including those with disabilities.
 
 ### Colour Scheme
 
