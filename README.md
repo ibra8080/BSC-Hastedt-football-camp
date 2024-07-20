@@ -47,35 +47,26 @@ I used [coolors.co](https://coolors.co/00305e-ffffe5-1e1e1e-ffed00) to generate 
 
 ## User Stories
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+### New Site Users (Parent) 
 
-In this section, list all of your user stories for the project.
+- As a parent, I can create an account so that I can add my children for the football camp.
+- As a parent, I can view available football training services so that I can choose one that fits my needs.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+### Returning Site Users (Parent)
 
-### New Site Users
-
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-
-### Returning Site Users
-
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
+- As a parent, I can log in so that I can access my account and manage my profile and bookings.
+- As a parent, I can log out so that I can securely end my session.
+- As a parent I can update my profile information so that my details are always current.
+- As a parent, I can add and manage player profiles so that I can register multiple children.
+- As a parent, I can book services for my children so that they can attend training sessions and camps.
+- As a parent, I can log out so that I can securely end my session.
 
 ### Site Admin
 
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
+- As a Admin I can edit or delete existing services so that I can update the offerings as needed.
+- As a admin I can create new services so that I can offer various training options to the children.
+- As an admin, I can view all players so that I can monitor and manage the registrations of all users.
+- As an admin, I can view all bookings so that I can manage and oversee the booking system efficiently.
 
 ## Wireframes
 
