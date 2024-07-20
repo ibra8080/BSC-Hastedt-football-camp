@@ -100,49 +100,73 @@ Service
 
 ### Existing Features
 
-- **YOUR-TITLE-FOR-FEATURE-#1**
+- **User Registration**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - Allows new users (parents) to create an account to manage their children's profiles and bookings. This feature is essential for parents to keep track of their children's activities and ensure they are enrolled in the desired training sessions.
 
-![screenshot](documentation/features/feature01.png)
+![screenshot](documentation/features/user_registration.png)
 
-- **YOUR-TITLE-FOR-FEATURE-#2**
+- **User Login**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - Enables registered users to log in to their accounts, ensuring secure access to their profiles and bookings. This is crucial for maintaining user privacy and providing personalized experiences.
 
-![screenshot](documentation/features/feature02.png)
+![screenshot](documentation/features/user_login.png)
 
-- **YOUR-TITLE-FOR-FEATURE-#3**
+- **User Account Management**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - Allows users to view and update their account information, ensuring their players are always up-to-date. This feature is important for adding and deleting players.
 
-![screenshot](documentation/features/feature03.png)
+![screenshot](documentation/features/account_management.png)
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+- **Player Profile Management**
 
-Repeat as necessary for as many features as your site contains.
+    - Lets parents add and manage profiles for their children, including details such as name, age, and gender. This is essential for registering multiple children and keeping their information organized.
 
-Hint: the more, the merrier!
+![screenshot](documentation/features/player_profile_management.png)
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+- **Service Listing**
+
+    - Displays available football training services, allowing users to view details and choose the best fit for their needs. This feature helps users understand the offerings and select appropriate services for their children.
+
+![screenshot](documentation/features/service_listing.png)
+
+- **Service Booking**
+
+    - Allows parents to book training services for their children, managing multiple bookings easily. This feature streamlines the process of enrolling children in desired training sessions and camps.
+
+![screenshot](documentation/features/service_booking.png)
+
+- **Admin Service Management**
+
+    - Enables admins to create, edit, and delete services, ensuring the offerings are always up-to-date and relevant. This feature allows for efficient management of the available training sessions and camps.
+
+![screenshot](documentation/features/admin_service_management.png)
+
+- **Admin Player Management**
+
+    - Provides admins with the ability to view all player profiles, helping monitor and manage registrations efficiently. This feature ensures that all player information is accessible and manageable by the admin.
+
+![screenshot](documentation/features/admin_player_management.png)
+
+- **Admin Booking Management**
+
+    - Allows admins to view and manage all bookings, overseeing the booking system efficiently. This feature is crucial for maintaining the integrity of the booking process and addressing any issues that arise.
+
+![screenshot](documentation/features/admin_booking_management.png)
 
 ### Future Features
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+## Future Features
 
-Do you have additional ideas that you'd like to include on your project in the future?
-Fantastic! List them here!
-It's always great to have plans for future improvements!
-Consider adding any helpful links or notes to help remind you in the future, if you revisit the project in a couple years.
+- **Automated Email Notifications** 
+    - Implement a system to send automated email notifications to parents for booking confirmations, reminders for upcoming sessions, and other important updates.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+- **Online Payment Integration**
+    - Add online payment functionality to allow parents to pay for services directly through the website, streamlining the booking and payment process.
 
-- YOUR-TITLE-FOR-FUTURE-FEATURE-#1
-    - Any additional notes about this feature.
-- YOUR-TITLE-FOR-FUTURE-FEATURE-#2
-    - Any additional notes about this feature.
-- YOUR-TITLE-FOR-FUTURE-FEATURE-#3
-    - Any additional notes about this feature.
+- **Advanced Player Statistics**
+    - Introduce detailed player performance statistics and progress tracking, giving parents and coaches more insights into the child's development.
+
 
 ## Tools & Technologies Used
 
