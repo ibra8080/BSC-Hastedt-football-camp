@@ -107,7 +107,10 @@ def book_service(request):
 
 @login_required
 def edit_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    booking = get_object_or_404(Booking, id=booking_id)
+    if booking.user != request.user:
+        messages.error(request, "Access Denied: You do not have permission to edit this booking.")
+        return HttpResponseForbidden("Access Denied: You do not have permission to edit this booking.")
     if request.method == 'POST':
         player_id = request.POST.get('player_id')
         service_ids = request.POST.getlist('service_ids')
@@ -129,10 +132,14 @@ def edit_booking(request, booking_id):
 
 @login_required
 def delete_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    booking = get_object_or_404(Booking, id=booking_id)
+    if booking.user != request.user:
+        messages.error(request, "Access Denied: You do not have permission to edit this booking.")
+        return HttpResponseForbidden("Access Denied: You do not have permission to edit this booking.")
     if request.method == 'POST':
         player_id = booking.player.id
         booking.delete()
+        messages.success(request, "Booking deleted successfully.")
         return redirect('player_profile', player_id=player_id)
     return render(request, 'football_camp/confirm_delete_booking.html', {'booking': booking})
 
@@ -237,7 +244,11 @@ def user_logout(request):
 
 @login_required
 def edit_player(request, player_id):
-    player = get_object_or_404(Player, id=player_id, user=request.user)
+    player = get_object_or_404(Player, id=player_id)
+    if player.user != request.user:
+        messages.error(request, "Access Denied: You don't have permission to edit this player.")
+        return HttpResponseForbidden("Access Denied: You don't have permission to edit this player.")
+    
     if request.method == 'POST':
         form = PlayerForm(request.POST, request.FILES, instance=player)
         if form.is_valid():
@@ -251,7 +262,11 @@ def edit_player(request, player_id):
 
 @login_required
 def delete_player(request, player_id):
-    player = get_object_or_404(Player, id=player_id, user=request.user)
+    player = get_object_or_404(Player, id=player_id)
+    if player.user != request.user:
+        messages.error(request, "Access Denied: You don't have permission to delete this player.")
+        return HttpResponseForbidden("Access Denied: You don't have permission to delete this player.")
+    
     if request.method == 'POST':
         player.delete()
         messages.success(request, 'Player deleted successfully.')
