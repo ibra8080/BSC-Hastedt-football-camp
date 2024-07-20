@@ -21,7 +21,7 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
     '.codeinstitute-ide.net',
-    'hastedt-football-camp.herokuapp.com',
+    'hastedt-football-camp-9eb422a0dbcf.herokuapp.com',
     'https://8000-ibra8080-bschastedtfoot-3i65fw8n2e7.ws.codeinstitute-ide.net',
     '127.0.0.1',
 ]
