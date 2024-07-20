@@ -273,3 +273,7 @@ def delete_player(request, player_id):
         return redirect('user_account')
     return render(request, 'football_camp/confirm_delete_player.html', {'player': player})
 
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+

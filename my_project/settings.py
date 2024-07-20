@@ -139,3 +139,6 @@ LOGOUT_REDIRECT_URL = '/'
 # Simplified static file serving.
 # https://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Custom 404
+handler404 = 'football_camp.views.custom_404'
