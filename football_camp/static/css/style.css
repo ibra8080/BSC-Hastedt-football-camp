@@ -361,6 +361,11 @@ ul li a:hover {
     margin-bottom: 1rem;
 }
 
+/* -------------------------------- 404 Error */
+.btne {
+    color: #ffeb00;
+    background-color: #1E1E1E;
+}
 /* -------------------------------- footer */
 footer {
     background-color: #04325F;

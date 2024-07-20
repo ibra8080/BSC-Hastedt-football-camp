@@ -17,10 +17,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
+
+
 ALLOWED_HOSTS = [
     '.codeinstitute-ide.net',
-    '.herokuapp.com',
+    'hastedt-football-camp.herokuapp.com',
     'https://8000-ibra8080-bschastedtfoot-3i65fw8n2e7.ws.codeinstitute-ide.net',
+    '127.0.0.1',
 ]
 
 # Application definition
