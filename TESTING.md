@@ -11,7 +11,7 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| football_camp | 404.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| football_camp | home.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
 | football_camp | admin_create_service.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
 | football_camp | admin_manage_services.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
 | football_camp | book_service.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
