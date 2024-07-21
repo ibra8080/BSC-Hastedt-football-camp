@@ -193,43 +193,41 @@ Service
 Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models.
 Understanding the relationships between different tables can save time later in the project.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-Using your defined models (one example below), create an ERD with the relationships identified.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ```python
-class Product(models.Model):
-    category = models.ForeignKey(
-        "Category", null=True, blank=True, on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=True, blank=True)
-    name = models.CharField(max_length=254)
-    description = models.TextField()
-    has_sizes = models.BooleanField(default=False, null=True, blank=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+class Service(models.Model):
+    TRAININGS = (("skills", "Skills"), ("fitness", "Fitness"), ("tactics", "Tactics"), ("all", "All"))
+    title = models.CharField(max_length=100, null=False, blank=False, verbose_name="Service Title")
+    focus = models.CharField(max_length=200, verbose_name="Service Focus")
+    duration = models.CharField(max_length=100, verbose_name="Service Duration")
+    features = models.TextField(verbose_name="Service Features")
+    training = models.CharField(max_length=10, choices=TRAININGS, null=True, blank=True, verbose_name="Training Type")
+    image = models.ImageField(upload_to='services/', blank=True, null=True, verbose_name="Service Image")
 
     def __str__(self):
-        return self.name
+        return self.title
+
+class Player(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='players')
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    age = models.IntegerField()
+    gender = models.CharField(max_length=10, choices=[('girl', 'Girl'), ('boy', 'Boy')])
+    height = models.FloatField()
+    pic = models.ImageField(upload_to='players/', blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="User")
+    player = models.ForeignKey(Player, on_delete=models.CASCADE, verbose_name="Player")
+    services = models.ManyToManyField(Service, verbose_name="Services")
+    booking_date = models.DateTimeField(auto_now_add=True, verbose_name="Booking Date")
+
+    def __str__(self):
+        return f"{self.user.username} - {self.player.first_name} {self.player.last_name} - {self.booking_date}"
 ```
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-A couple recommendations for building free ERDs:
-- [Draw.io](https://draw.io)
-- [Lucidchart](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
-
-A more comprehensive ERD can be auto-generated once you're
-at the end of your development stages, just before you submit.
-Follow the steps below to obtain a thorough ERD that you can include.
-Feel free to leave the steps in the README for future use to yourself.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 I have used `pygraphviz` and `django-extensions` to auto-generate an ERD.
 
 The steps taken were as follows:
