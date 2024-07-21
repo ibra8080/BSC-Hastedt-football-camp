@@ -11,27 +11,18 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| football_camp | home.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | admin_create_service.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | admin_manage_services.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | book_service.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | confirm_delete_booking.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | confirm_delete_player.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | delete_booking.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | edit_booking.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | edit_player.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | edit_service.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | home.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | manage_players.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | player_added.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | player_profile.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | service_list.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | service_page.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | user_account.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | view_training_schedule.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | login.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | logout.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | register.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| football_camp | home.html | ![screenshot](documentation/validation/test-home.png) | |
+| football_camp | book_service.html | ![screenshot](documentation/validation/html-book-v.png) | |
+| football_camp | confirm_delete_booking.html | ![screenshot](documentation/validation/html-d-book-v.png) | |
+| football_camp | confirm_delete_player.html | ![screenshot](documentation/validation/html-d-player-v.png) | |
+| football_camp | edit_booking.html | ![screenshot](documentation/validation/html-edit-book-v.png) | |
+| football_camp | edit_player.html | ![screenshot](documentation/validation/html-edit-player-v.png) | |
+| football_camp | manage_players.html | ![screenshot](documentation/validation/html-m-player-v.png) | |
+| football_camp | player_profile.html | ![screenshot](documentation/validation/html-player-p-v.png) | |
+| football_camp | service_page.html | ![screenshot](documentation/validation/html-service-v.png) | |
+| football_camp | user_account.html | ![screenshot](documentation/validation/html-u-account-v.png) | |
+| football_camp | login.html | ![screenshot](documentation/validation/html-login-v.png) | |
+| football_camp | register.html | ![screenshot](documentation/validation/html-register-v.png) | |
 
 ### CSS
 
