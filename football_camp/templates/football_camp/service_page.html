@@ -8,7 +8,8 @@
         {% if service.image %}
             <img src="{{ service.image.url }}" alt="{{ service.title }}" class="img-service">
         {% endif %}
-        <p>{{ service.features|safe|linebreaksbr }}</p>
+        <!-- Ensure that service.features does not contain invalid HTML -->
+        {{ service.features|safe|linebreaksbr }}
         <a href="{% url 'book_service' %}" class="btn btn-primary">Book Now</a>
     </div>
 {% endblock %}
