@@ -8,7 +8,8 @@ from django.core.validators import RegexValidator
 # Custom user creation form
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    telephone = forms.CharField(max_length=15, validators=[RegexValidator(regex=r'^\d+$', message='Telephone must be numeric.')])
+    telephone = forms.CharField(max_length=15, validators=[RegexValidator(
+        regex=r'^\d+$', message='Telephone must be numeric.')])
     address = forms.CharField(max_length=255)
 
     class Meta:
@@ -28,6 +29,7 @@ class CustomUserCreationForm(UserCreationForm):
                 }
             )
         return user
+
 
 # Player form
 class PlayerForm(forms.ModelForm):

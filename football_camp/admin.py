@@ -14,5 +14,3 @@ class ServiceAdmin(SummernoteModelAdmin):
 admin.site.register(Player)
 admin.site.register(Booking)
 admin.site.register(Service, ServiceAdmin)
-
-

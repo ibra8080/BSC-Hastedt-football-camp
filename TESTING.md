@@ -46,14 +46,14 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 | Directory | File | CI URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| football_camp | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/football_camp/admin.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/football_camp/forms.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/football_camp/models.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/football_camp/urls.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| football_camp | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/football_camp/views.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-|  | manage.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/manage.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| my_project | settings.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/my_project/settings.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| my_project | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/my_project/urls.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| football_camp | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/football_camp/admin.py) | ![screenshot](documentation/validation/admin-py-v.png) | |
+| football_camp | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/football_camp/forms.py) | ![screenshot](documentation/validation/form-py-v.png) | |
+| football_camp | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/football_camp/models.py) | ![screenshot](documentation/validation/models-py-v.png) | |
+| football_camp | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/football_camp/urls.py) | ![screenshot](documentation/validation/urls-py-f-v.png) | |
+| football_camp | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/football_camp/views.py) | ![screenshot](documentation/validation/views-py-v.png) | |
+|  | manage.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/manage.py) | ![screenshot](documentation/validation/manage-py-v.png) | |
+| my_project | settings.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/my_project/settings.py) | ![screenshot](documentation/validation/settings-py-v.png) | |
+| my_project | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/ibra8080/BSC-Hastedt-football-camp/main/my_project/urls.py) | ![screenshot](documentation/validation/urls-py-v.png) | |
 
 ## Browser Compatibility
 
