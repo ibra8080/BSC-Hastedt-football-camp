@@ -30,7 +30,7 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| football_camp | style.css | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| football_camp | style.css | ![screenshot](documentation/validation/css-valid.png) | |
 
 ### JavaScript
 
@@ -38,7 +38,7 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| football_camp | script.js | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| football_camp | script.js | ![screenshot](documentation/validation/js-valid.png) | |
 
 ### Python
 
