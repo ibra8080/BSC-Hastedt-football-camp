@@ -1,9 +1,11 @@
-from pathlib import Path
 import os
-import dj_database_url
+import django_heroku
+from pathlib import Path
 
+import dj_database_url
 if os.path.isfile("env.py"):
     import env
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'my_project.urls'
 
 TEMPLATES = [
@@ -73,18 +76,10 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse(
-        'postgres://uct1b7j6rj0:sTcQSZdD5vip@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/jumbo_half_lazy_466620',
-        conn_max_age=600,
-        ssl_require=True,
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
     )
 }
-
-if DATABASES['default']['ENGINE'] == 'django.db.backends.postgresql':
-    DATABASES['default']['OPTIONS'] = {
-        'connect_timeout': 10,
-        'options': '-c statement_timeout=10000',
-    }
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.codeinstitute-ide.net',
@@ -124,7 +119,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'football_camp/static')]
 
-# https://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
@@ -141,9 +135,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = '/' 
 
-# Simplified static file serving.
 # https://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Custom 404
-handler404 = 'football_camp.views.custom_404'
+
+django_heroku.settings(locals())
