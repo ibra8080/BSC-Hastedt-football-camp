@@ -24,7 +24,7 @@ DEBUG = os.environ.get('DEBUG', False)
 ALLOWED_HOSTS = [
     '.codeinstitute-ide.net',
     'hastedt-football-camp-9eb422a0dbcf.herokuapp.com',
-    'https://8000-ibra8080-bschastedtfoot-3i65fw8n2e7.ws.codeinstitute-ide.net',
+    'https://8000-ibra8080-bschastedtfoot-3i65fw8n2e7.ws.codeinstitute-ide.net',  # noqa
     '127.0.0.1',
 ]
 
@@ -139,10 +139,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Authentication settings
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
-LOGOUT_REDIRECT_URL = '/' 
+LOGOUT_REDIRECT_URL = '/'
 
 # https://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # noqa
 
 
 django_heroku.settings(locals())

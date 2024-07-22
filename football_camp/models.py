@@ -15,9 +15,18 @@ class Service(models.Model):
         max_length=100, verbose_name="Service Duration")
     features = models.TextField(verbose_name="Service Features")
     training = models.CharField(
-        max_length=10, choices=TRAININGS, null=True, blank=True, verbose_name="Training Type")
+        max_length=10,
+        choices=TRAININGS,
+        null=True,
+        blank=True,
+        verbose_name="Training Type"
+    )
     image = models.ImageField(
-        upload_to='services/', blank=True, null=True, verbose_name="Service Image")
+        upload_to='services/',
+        blank=True,
+        null=True,
+        verbose_name="Service Image"
+    )
 
     def __str__(self):
         return self.title
@@ -58,7 +67,7 @@ class Booking(models.Model):
         auto_now_add=True, verbose_name="Booking Date")
 
     def __str__(self):
-        return f"{self.user.username} - {self.player.first_name} {self.player.last_name} - {self.booking_date}"
+        return f"{self.user.username} - {self.player.first_name} {self.player.last_name} - {self.booking_date}"  # noqa
 
     class Meta:
         verbose_name = "Booking"
