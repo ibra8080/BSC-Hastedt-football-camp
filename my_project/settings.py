@@ -135,12 +135,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Cloudinary configuration
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('ds5wgelgc'),
-    'API_KEY': os.environ.get('613497155141798'),
-    'API_SECRET': os.environ.get('_rzP2196VkKcGg7sYBWfg8XqXUo'),
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': os.environ.get('ds5wgelgc'),
+#     'API_KEY': os.environ.get('613497155141798'),
+#     'API_SECRET': os.environ.get('_rzP2196VkKcGg7sYBWfg8XqXUo'),
+# }
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Default primary key field type
