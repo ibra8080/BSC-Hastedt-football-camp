@@ -117,294 +117,51 @@ Defensive programming was manually tested with the below user acceptance testing
 | As a parent, I can book services for my children so that they can attend training sessions and camps. | ![screenshot](documentation/features/desk-safari-book.png) |
 | As a parent, I can add and manage player profiles so that I can register multiple children. | ![screenshot](documentation/features/account_management.png) |
 
-## Automated Testing
-
-I have conducted a series of automated tests on my application.
-
-I fully acknowledge and understand that, in a real-world scenario, an extensive set of additional tests would be more comprehensive.
-
-### JavaScript (Jest Testing)
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Adjust the code below (file names, etc.) to match your own project files/folders.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-I have used the [Jest](https://jestjs.io) JavaScript testing framework to test the application functionality.
-
-In order to work with Jest, I first had to initialize NPM.
-
-- `npm init`
-- Hit `enter` for all options, except for **test command:**, just type `jest`.
-
-Add Jest to a list called **Dev Dependencies** in a dev environment:
-
-- `npm install --save-dev jest`
-
-**IMPORTANT**: Initial configurations
-
-When creating test files, the name of the file needs to be `file-name.test.js` in order for Jest to properly work.
-
-Without the following, Jest won't properly run the tests:
-
-- `npm install -D jest-environment-jsdom`
-
-Due to a change in Jest's default configuration, you'll need to add the following code to the top of the `.test.js` file:
-
-```js
-/**
- * @jest-environment jsdom
- */
-
-const { test, expect } = require("@jest/globals");
-const { function1, function2, function3, etc. } = require("../script-name");
-
-beforeAll(() => {
-    let fs = require("fs");
-    let fileContents = fs.readFileSync("index.html", "utf-8");
-    document.open();
-    document.write(fileContents);
-    document.close();
-});
-```
-
-Remember to adjust the `fs.readFileSync()` to the specific file you'd like you test.
-The example above is testing the `index.html` file.
-
-Finally, at the bottom of the script file where your primary scripts are written, include the following at the bottom of the file.
-Make sure to include the name of all of your functions that are being tested in the `.test.js` file.
-
-```js
-if (typeof module !== "undefined") module.exports = {
-    function1, function2, function3, etc.
-};
-```
-
-Now that these steps have been undertaken, further tests can be written, and be expected to fail initially.
-Write JS code that can get the tests to pass as part of the Red-Green refactor process.
-
-Once ready, to run the tests, use this command:
-
-- `npm test`
-
-**NOTE**: To obtain a coverage report, use the following command:
-
-- `npm test --coverage`
-
-Below are the results from the tests that I've written for this application:
-
-| Test Suites | Tests | Screenshot |
-| --- | --- | --- |
-| 1 passed | 16 passed | ![screenshot](documentation/tests/js-test-coverage.png) |
-| x | x | repeat for all remaining tests |
-
-#### Jest Test Issues
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this section to list any known issues you ran into while writing your Jest tests.
-Remember to include screenshots (where possible), and a solution to the issue (if known).
-
-This can be used for both "fixed" and "unresolved" issues.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-### Python (Unit Testing)
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Adjust the code below (file names, etc.) to match your own project files/folders.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-I have used Django's built-in unit testing framework to test the application functionality.
-
-In order to run the tests, I ran the following command in the terminal each time:
-
-`python3 manage.py test name-of-app`
-
-To create the coverage report, I would then run the following commands:
-
-`pip3 install coverage`
-
-`pip3 freeze --local > requirements.txt`
-
-`coverage run --omit=*/site-packages/*,*/migrations/*,*/__init__.py,env.py manage.py test`
-
-`coverage report`
-
-To see the HTML version of the reports, and find out whether some pieces of code were missing, I ran the following commands:
-
-`coverage html`
-
-`python3 -m http.server`
-
-Below are the results from the various apps on my application that I've tested:
-
-| App | File | Coverage | Screenshot |
-| --- | --- | --- | --- |
-| Bag | test_forms.py | 99% | ![screenshot](documentation/tests/py-test-bag-forms.png) |
-| Bag | test_models.py | 89% | ![screenshot](documentation/tests/py-test-bag-models.png) |
-| Bag | test_urls.py | 100% | ![screenshot](documentation/tests/py-test-bag-urls.png) |
-| Bag | test_views.py | 71% | ![screenshot](documentation/tests/py-test-bag-views.png) |
-| Checkout | test_forms.py | 99% | ![screenshot](documentation/tests/py-test-checkout-forms.png) |
-| Checkout | test_models.py | 89% | ![screenshot](documentation/tests/py-test-checkout-models.png) |
-| Checkout | test_urls.py | 100% | ![screenshot](documentation/tests/py-test-checkout-urls.png) |
-| Checkout | test_views.py | 71% | ![screenshot](documentation/tests/py-test-checkout-views.png) |
-| Home | test_forms.py | 99% | ![screenshot](documentation/tests/py-test-home-forms.png) |
-| Home | test_models.py | 89% | ![screenshot](documentation/tests/py-test-home-models.png) |
-| Home | test_urls.py | 100% | ![screenshot](documentation/tests/py-test-home-urls.png) |
-| Home | test_views.py | 71% | ![screenshot](documentation/tests/py-test-home-views.png) |
-| Products | test_forms.py | 99% | ![screenshot](documentation/tests/py-test-products-forms.png) |
-| Products | test_models.py | 89% | ![screenshot](documentation/tests/py-test-products-models.png) |
-| Products | test_urls.py | 100% | ![screenshot](documentation/tests/py-test-products-urls.png) |
-| Products | test_views.py | 71% | ![screenshot](documentation/tests/py-test-products-views.png) |
-| Profiles | test_forms.py | 99% | ![screenshot](documentation/tests/py-test-profiles-forms.png) |
-| Profiles | test_models.py | 89% | ![screenshot](documentation/tests/py-test-profiles-models.png) |
-| Profiles | test_urls.py | 100% | ![screenshot](documentation/tests/py-test-profiles-urls.png) |
-| Profiles | test_views.py | 71% | ![screenshot](documentation/tests/py-test-profiles-views.png) |
-| x | x | x | repeat for all remaining tested apps/files |
-
-#### Unit Test Issues
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this section to list any known issues you ran into while writing your unit tests.
-Remember to include screenshots (where possible), and a solution to the issue (if known).
-
-This can be used for both "fixed" and "unresolved" issues.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ## Bugs
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-This section is primarily used for JavaScript and Python applications,
-but feel free to use this section to document any HTML/CSS bugs you might run into.
-
-It's very important to document any bugs you've discovered while developing the project.
-Make sure to include any necessary steps you've implemented to fix the bug(s) as well.
-
-**PRO TIP**: screenshots of bugs are extremely helpful, and go a long way!
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- JS Uncaught ReferenceError: `foobar` is undefined/not defined
+- Django `DoesNotExist` at /book_service/ when trying to query a player**
 
     ![screenshot](documentation/bugs/bug01.png)
 
-    - To fix this, I _____________________.
+    - To fix this, I ensured that the query to fetch the player was correctly written and verified that the player exists in the database before attempting to fetch it. Specifically, I added error handling for the `DoesNotExist` exception to provide a more user-friendly message or redirect the user to a relevant page if the player does not exist.
 
-- JS `'let'` or `'const'` or `'template literal syntax'` or `'arrow function syntax (=>)'` is available in ES6 (use `'esversion: 11'`) or Mozilla JS extensions (use moz).
+- Django **`TypeError` at /admin_create_service/ when trying to create a service**
 
     ![screenshot](documentation/bugs/bug02.png)
 
-    - To fix this, I _____________________.
+    - To fix this, I checked the `Service` model definition to ensure that the field `name` exists and is correctly defined. I found that the `Service` model did not have a field named `name`. Therefore, I either corrected the field name in the model definition to match the expected keyword argument or updated the keyword argument in the view to match the actual field name in the `Service` model.
 
-- Python `'ModuleNotFoundError'` when trying to import module from imported package
+
+- Django `TemplateDoesNotExist` at /register/ when trying to load template
 
     ![screenshot](documentation/bugs/bug03.png)
 
-    - To fix this, I _____________________.
+    - To fix this, I ensured that the `registration/register.html` template exists in the correct directory. I verified the template path and created the missing template file in the `templates/registration/` directory if it was not already present. Additionally, I checked the `TEMPLATES` setting in `settings.py` to ensure it includes the correct directories.### GitHub.
 
-- Django `TemplateDoesNotExist` at /appname/path appname/template_name.html
-
-    ![screenshot](documentation/bugs/bug04.png)
-
-    - To fix this, I _____________________.
-
-- Python `E501 line too long` (93 > 79 characters)
+- Django `Improper HTML rendering` at homepage when trying to display programs
 
     ![screenshot](documentation/bugs/bug04.png)
 
-    - To fix this, I _____________________.
+    - To fix this, I updated my template elements to include the `|safe` filter in Django to ensure that the HTML content is rendered correctly without escaping the HTML tags. This allowed the content to display as intended with the appropriate formatting and styling.
 
-### GitHub **Issues**
+- Django `AttributeError` at /register/ when trying to access the profile attribute of a User object
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
+    ![screenshot](documentation/bugs/bug05.png)
 
-An improved way to manage bugs is to use the built-in **Issues** tracker on your GitHub repository.
-To access your Issues, click on the "Issues" tab at the top of your repository.
-Alternatively, use this link: https://github.com/ibra8080/BSC-Hastedt-football-camp/issues
+    - To fix this, I ensured that the `User` model has a related `Profile` model using a OneToOneField relationship. I verified that the `Profile` object is created whenever a `User` object is created. Additionally, I checked if the `User` object is being correctly referenced and accessed in the view or form where the error occurred.
 
-If using the Issues tracker for your bug management, you can simplify the documentation process.
-Issues allow you to directly paste screenshots into the issue without having to first save the screenshot locally,
-then uploading into your project.
+- CSS `Improper checkbox rendering` for selecting services
 
-You can add labels to your issues (`bug`), assign yourself as the owner, and add comments/updates as you progress with fixing the issue(s).
+    ![screenshot](documentation/bugs/bug06.png)
 
-Once you've sorted the issue, you should then "Close" it.
+    - To fix this, I updated the CSS to ensure proper alignment and styling of the checkboxes and their labels. I added styles to adjust the margin, padding, and font size for better readability and visual appeal.
 
-When showcasing your bug tracking for assessment, you can use the following format:
+- Django `NameError` at /edit_booking/ when trying to access a URL that isn't mine
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+    ![screenshot](documentation/bugs/bug07.png)
 
-**Fixed Bugs**
-
-[![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3Aibra8080%2FBSC-Hastedt-football-camp%20label%3Abug&label=bugs)](https://github.com/ibra8080/BSC-Hastedt-football-camp/issues?q=is%3Aissue+is%3Aclosed+label%3Abug)
-
-All previously closed/fixed bugs can be tracked [here](https://github.com/ibra8080/BSC-Hastedt-football-camp/issues?q=is%3Aissue+is%3Aclosed).
-
-| Bug | Status |
-| --- | --- |
-| [JS Uncaught ReferenceError: `foobar` is undefined/not defined](https://github.com/ibra8080/BSC-Hastedt-football-camp/issues/1) | Closed |
-| [Python `'ModuleNotFoundError'` when trying to import module from imported package](https://github.com/ibra8080/BSC-Hastedt-football-camp/issues/2) | Closed |
-| [Django `TemplateDoesNotExist` at /appname/path appname/template_name.html](https://github.com/ibra8080/BSC-Hastedt-football-camp/issues/3) | Closed |
-
-**Open Issues**
-
-[![GitHub issues](https://img.shields.io/github/issues/ibra8080/BSC-Hastedt-football-camp)](https://github.com/ibra8080/BSC-Hastedt-football-camp/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/ibra8080/BSC-Hastedt-football-camp)](https://github.com/ibra8080/BSC-Hastedt-football-camp/issues?q=is%3Aissue+is%3Aclosed)
-
-Any remaining open issues can be tracked [here](https://github.com/ibra8080/BSC-Hastedt-football-camp/issues).
-
-| Bug | Status |
-| --- | --- |
-| [JS `'let'` or `'const'` or `'template literal syntax'` or `'arrow function syntax (=>)'` is available in ES6 (use `'esversion: 11'`) or Mozilla JS extensions (use moz).](https://github.com/ibra8080/BSC-Hastedt-football-camp/issues/4) | Open |
-| [Python `E501 line too long` (93 > 79 characters)](https://github.com/ibra8080/BSC-Hastedt-football-camp/issues/5) | Open |
+    - To fix this, I imported `HttpResponseForbidden` in the `views.py` file and added a `django.messages.error` for user feedback.
 
 ## Unfixed Bugs
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-You will need to mention unfixed bugs and why they were not fixed.
-This section should include shortcomings of the frameworks or technologies used.
-Although time can be a big variable to consider, paucity of time and difficulty understanding
-implementation is not a valid reason to leave bugs unfixed.
-
-If you've identified any unfixed bugs, no matter how small, be sure to list them here.
-It's better to be honest and list them, because if it's not documented and an assessor finds the issue,
-they need to know whether or not you're aware of them as well, and why you've not corrected/fixed them.
-
-Some examples:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- On devices smaller than 375px, the page starts to have `overflow-x` scrolling.
-
-    ![screenshot](documentation/bugs/unfixed-bug01.png)
-
-    - Attempted fix: I tried to add additional media queries to handle this, but things started becoming too small to read.
-
-- For PP3, when using a helper `clear()` function, any text above the height of the terminal does not clear, and remains when you scroll up.
-
-    ![screenshot](documentation/bugs/unfixed-bug02.png)
-
-    - Attempted fix: I tried to adjust the terminal size, but it only resizes the actual terminal, not the allowable area for text.
-
-- When validating HTML with a semantic `section` element, the validator warns about lacking a header `h2-h6`. This is acceptable.
-
-    ![screenshot](documentation/bugs/unfixed-bug03.png)
-
-    - Attempted fix: this is a known warning and acceptable, and my section doesn't require a header since it's dynamically added via JS.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-If you legitimately cannot find any unfixed bugs or warnings, then use the following sentence:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 > [!NOTE]  
 > There are no remaining bugs that I am aware of.
