@@ -103,31 +103,19 @@ Defensive programming was manually tested with the below user acceptance testing
 | Edit player | | | | | |
 | | Feature is expected to deny access when a user tries to edit a player belonging to another user | Attempted to edit a player belonging to another user | Displayed "Access Denied: You don't have permission to edit this player." and returned to home | Test concluded and passed | ![screenshot](documentation/defensive/edit-player-def.png) |
 
-
 ## User Story Testing
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Testing user stories is actually quite simple, once you've already got the stories defined on your README.
-
-Most of your project's **features** should already align with the **user stories**,
-so this should as simple as creating a table with the user story, matching with the re-used screenshot
-from the respective feature.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 | User Story | Screenshot |
 | --- | --- |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature01.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature02.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature03.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature04.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature05.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature06.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature07.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature08.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature09.png) |
-| repeat for all remaining user stories | x |
+| As a parent, I can view available football training services so that I can choose one that fits my needs.| ![screenshot](documentation/features/service_listing.png) |
+| As a parent, I can create an account so that I can manage my children for the football camp.| ![screenshot](documentation/features/user_registration.png) |
+| As a parent, I can log in so that I can access my account and manage my profile. | ![screenshot](documentation/features/user_login.png) |
+| As an admin, I can view all bookings so that I can manage and oversee the booking system efficiently. | ![screenshot](documentation/features/admin_booking_management.png) |
+| As an admin, I can view all players so that I can monitor and manage the registrations of all users. | ![screenshot](documentation/features/admin_player_management.png) |
+| As a Admin I can edit or delete existing services so that I can update the offerings as needed. | ![screenshot](documentation/features/admin_service_management.png) |
+| As a admin I can create new services so that I can offer various training options to the children. | ![screenshot](documentation/features/admin-add-sevice.png) |
+| As a parent, I can book services for my children so that they can attend training sessions and camps. | ![screenshot](documentation/features/desk-safari-book.png) |
+| As a parent, I can add and manage player profiles so that I can register multiple children. | ![screenshot](documentation/features/account_management.png) |
 
 ## Automated Testing
 
