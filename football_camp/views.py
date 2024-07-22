@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from .models import Service, Player, Booking
@@ -11,22 +10,29 @@ from django.contrib.auth import authenticate, login, logout
 def index(request):
     return HttpResponse('Hello football players')
 
+
 def home(request):
     services = Service.objects.all()
     return render(request, 'football_camp/home.html', {'services': services})
+
 
 def is_superuser(user):
     return user.is_superuser
 
 # Admin Functions
 
+
 def superuser_required(view_func):
     def _wrapped_view_func(request, *args, **kwargs):
         if not request.user.is_superuser:
-            messages.error(request, "You don’t have permission to access this page.")
+            messages.error(
+                request,
+                "You don’t have permission to access this page."
+            )
             return redirect('service_list')
         return view_func(request, *args, **kwargs)
     return _wrapped_view_func
+
 
 @superuser_required
 def admin_create_service(request):
@@ -36,7 +42,7 @@ def admin_create_service(request):
         duration = request.POST.get('duration')
         features = request.POST.get('features')
         training = request.POST.get('training')
-        
+
         Service.objects.create(
             title=title,
             focus=focus,
@@ -44,15 +50,21 @@ def admin_create_service(request):
             features=features,
             training=training
         )
-        
+
         return redirect('admin_manage_services')
 
     return render(request, 'football_camp/admin_create_service.html')
 
+
 @superuser_required
 def admin_manage_services(request):
     services = Service.objects.all()
-    return render(request, 'football_camp/admin_manage_services.html', {'services': services})
+    return render(
+        request,
+        'football_camp/admin_manage_services.html',
+        {'services': services}
+    )
+
 
 @superuser_required
 def edit_service(request, service_id):
@@ -67,7 +79,12 @@ def edit_service(request, service_id):
         service.save()
         return redirect('admin_manage_services')
 
-    return render(request, 'football_camp/edit_service.html', {'service': service})
+    return render(
+        request,
+        'football_camp/edit_service.html',
+        {'service': service}
+    )
+
 
 @superuser_required
 def delete_service(request, service_id):
@@ -76,15 +93,18 @@ def delete_service(request, service_id):
     return redirect('admin_manage_services')
 
 
-# User Functions 
+# User Functions
 
 @login_required
 def book_service(request):
     user = request.user
     players = Player.objects.filter(user=user)
-    
+
     if not players.exists():
-        messages.info(request, "You need to add a player first. Please add a player.")
+        messages.info(
+            request,
+            "You need to add a player first. Please add a player."
+        )
         return redirect('manage_players')
 
     if request.method == 'POST':
@@ -102,32 +122,45 @@ def book_service(request):
         return redirect('player_profile', player_id=player_id)
 
     services = Service.objects.all()
-    return render(request, 'football_camp/book_service.html', {'players': players, 'services': services})
+    return render(
+        request,
+        'football_camp/book_service.html',
+        {'players': players, 'services': services}
+    )
 
 
 @login_required
 def edit_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     if booking.user != request.user:
-        messages.error(request, "Access Denied: You do not have permission to edit this booking.")
-        return HttpResponseForbidden("Access Denied: You do not have permission to edit this booking.")
+        messages.error(
+            request,
+            "Access Denied: You do not have permission to edit this booking."
+        )
+        return redirect("home")
     if request.method == 'POST':
         player_id = request.POST.get('player_id')
         service_ids = request.POST.getlist('service_ids')
-        
-        booking.player = get_object_or_404(Player, id=player_id, user=request.user)
+
+        booking.player = get_object_or_404(
+            Player, id=player_id, user=request.user
+        )
         booking.services.clear()
-        
+
         for service_id in service_ids:
             service = get_object_or_404(Service, id=service_id)
             booking.services.add(service)
-        
+
         booking.save()
         return redirect('player_profile', player_id=booking.player.id)
-    
+
     players = Player.objects.filter(user=request.user)
     services = Service.objects.all()
-    return render(request, 'football_camp/edit_booking.html', {'booking': booking, 'players': players, 'services': services})
+    return render(
+        request,
+        'football_camp/edit_booking.html',
+        {'booking': booking, 'players': players, 'services': services}
+    )
 
 
 @login_required
@@ -135,7 +168,7 @@ def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     if booking.user != request.user:
         messages.error(request, "Access Denied: You do not have permission to edit this booking.")
-        return HttpResponseForbidden("Access Denied: You do not have permission to edit this booking.")
+        return redirect("home")
     if request.method == 'POST':
         player_id = booking.player.id
         booking.delete()
@@ -147,7 +180,7 @@ def delete_booking(request, booking_id):
 @login_required
 def player_profile(request, player_id):
     player = get_object_or_404(Player, id=player_id, user=request.user)
-    bookings = Booking.objects.filter(player=player).select_related('user').prefetch_related('services')
+    bookings = Booking.objects.filter(player=player).select_related('user').prefetch_related('services')  # noqa
     return render(request, 'football_camp/player_profile.html', {'player': player, 'bookings': bookings})
 
 
@@ -247,7 +280,7 @@ def edit_player(request, player_id):
     player = get_object_or_404(Player, id=player_id)
     if player.user != request.user:
         messages.error(request, "Access Denied: You don't have permission to edit this player.")
-        return HttpResponseForbidden("Access Denied: You don't have permission to edit this player.")
+        return redirect("home")
     
     if request.method == 'POST':
         form = PlayerForm(request.POST, request.FILES, instance=player)
@@ -265,14 +298,13 @@ def delete_player(request, player_id):
     player = get_object_or_404(Player, id=player_id)
     if player.user != request.user:
         messages.error(request, "Access Denied: You don't have permission to delete this player.")
-        return HttpResponseForbidden("Access Denied: You don't have permission to delete this player.")
+        return redirect("home")
     
     if request.method == 'POST':
         player.delete()
         messages.success(request, 'Player deleted successfully.')
         return redirect('user_account')
     return render(request, 'football_camp/confirm_delete_player.html', {'player': player})
-
 
 
 def handler404(request, exception):

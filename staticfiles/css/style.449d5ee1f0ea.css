@@ -17,6 +17,7 @@ p {
 
 section#alerts {
     z-index: 99999;
+    padding-top: 70px;
 }
 .wrapper {
     display: flex;
