@@ -19,6 +19,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False)
+#DEBUG = True
 
 
 ALLOWED_HOSTS = [
@@ -32,6 +33,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'cloudinary_storage',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'football_camp',
     'django_summernote',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +132,15 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# Cloudinary configuration
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('ds5wgelgc'),
+    'API_KEY': os.environ.get('613497155141798'),
+    'API_SECRET': os.environ.get('_rzP2196VkKcGg7sYBWfg8XqXUo'),
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Default primary key field type

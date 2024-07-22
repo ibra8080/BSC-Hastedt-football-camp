@@ -1,6 +1,8 @@
 asgiref==3.8.1
+cloudinary==1.36.0
 coverage==7.6.0
 dj-database-url==0.5.0
+dj3-cloudinary-storage==0.0.6
 Django==5.0.7
 django-heroku==0.3.1
 django-summernote==0.8.20.0
@@ -9,4 +11,5 @@ pillow==10.4.0
 psycopg2==2.9.9
 psycopg2-binary==2.9.9
 sqlparse==0.5.0
+urllib3==1.26.19
 whitenoise==6.5.0
