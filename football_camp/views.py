@@ -167,27 +167,42 @@ def edit_booking(request, booking_id):
 def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     if booking.user != request.user:
-        messages.error(request, "Access Denied: You do not have permission to edit this booking.")
+        messages.error(
+            request,
+            "Access Denied: You do not have permission to edit this booking."
+        )
         return redirect("home")
     if request.method == 'POST':
         player_id = booking.player.id
         booking.delete()
         messages.success(request, "Booking deleted successfully.")
         return redirect('player_profile', player_id=player_id)
-    return render(request, 'football_camp/confirm_delete_booking.html', {'booking': booking})
+    return render(
+        request,
+        'football_camp/confirm_delete_booking.html',
+        {'booking': booking}
+    )
 
 
 @login_required
 def player_profile(request, player_id):
     player = get_object_or_404(Player, id=player_id, user=request.user)
     bookings = Booking.objects.filter(player=player).select_related('user').prefetch_related('services')  # noqa
-    return render(request, 'football_camp/player_profile.html', {'player': player, 'bookings': bookings})
+    return render(
+        request,
+        'football_camp/player_profile.html',
+        {'player': player, 'bookings': bookings}
+    )
 
 
 @login_required
 def view_training_schedule(request):
     schedule = TrainingSchedule.objects.all()
-    return render(request, 'football_camp/view_training_schedule.html', {'schedule': schedule})
+    return render(
+        request,
+        'football_camp/view_training_schedule.html',
+        {'schedule': schedule}
+    )
 
 
 @login_required
@@ -208,7 +223,12 @@ def manage_players(request):
         form = PlayerForm()
 
     players = Player.objects.filter(user=request.user)
-    return render(request, 'football_camp/manage_players.html', {'players': players, 'form': form})
+    return render(
+        request,
+        'football_camp/manage_players.html',
+        {'players': players, 'form': form}
+    )
+
 
 @login_required
 def player_added(request):
@@ -228,24 +248,35 @@ def user_account(request):
 
 def service_list(request):
     services = Service.objects.all()
-    return render(request, 'football_camp/service_list.html', {'services': services})
+    return render(
+        request,
+        'football_camp/service_list.html',
+        {'services': services}
+    )
 
 
 def service_page(request, service_id):
     service = get_object_or_404(Service, id=service_id)
-    return render(request, 'football_camp/service_page.html', {'service': service})
-    
+    return render(
+        request,
+        'football_camp/service_page.html',
+        {'service': service}
+    )
+
 
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  
+            login(request, user)
             messages.success(request, "Registration successful.")
-            return redirect('home')  
+            return redirect('home')
         else:
-            messages.error(request, "Unsuccessful registration. Invalid information.")
+            messages.error(
+                request,
+                "Unsuccessful registration. Invalid information."
+            )
     else:
         form = CustomUserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
@@ -273,15 +304,19 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect('/')  
+    return redirect('/')
+
 
 @login_required
 def edit_player(request, player_id):
     player = get_object_or_404(Player, id=player_id)
     if player.user != request.user:
-        messages.error(request, "Access Denied: You don't have permission to edit this player.")
+        messages.error(
+            request,
+            "Access Denied: You don't have permission to edit this player."
+        )
         return redirect("home")
-    
+
     if request.method == 'POST':
         form = PlayerForm(request.POST, request.FILES, instance=player)
         if form.is_valid():
@@ -290,21 +325,32 @@ def edit_player(request, player_id):
             return redirect('user_account')
     else:
         form = PlayerForm(instance=player)
-    return render(request, 'football_camp/edit_player.html', {'form': form, 'player': player})
+    return render(
+        request,
+        'football_camp/edit_player.html',
+        {'form': form, 'player': player}
+    )
 
 
 @login_required
 def delete_player(request, player_id):
     player = get_object_or_404(Player, id=player_id)
     if player.user != request.user:
-        messages.error(request, "Access Denied: You don't have permission to delete this player.")
+        messages.error(
+            request,
+            "Access Denied: You don't have permission to delete this player."
+        )
         return redirect("home")
-    
+
     if request.method == 'POST':
         player.delete()
         messages.success(request, 'Player deleted successfully.')
         return redirect('user_account')
-    return render(request, 'football_camp/confirm_delete_player.html', {'player': player})
+    return render(
+        request,
+        'football_camp/confirm_delete_player.html',
+        {'player': player}
+    )
 
 
 def handler404(request, exception):
