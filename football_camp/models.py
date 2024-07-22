@@ -22,12 +22,7 @@ class Service(models.Model):
         blank=True,
         verbose_name="Training Type"
     )
-    image = models.ImageField(
-        upload_to='services/',
-        blank=True,
-        null=True,
-        verbose_name="Service Image"
-    )
+    image = CloudinaryField(blank=True, null=True, verbose_name="Service Image")
 
     def __str__(self):
         return self.title
@@ -47,7 +42,7 @@ class Player(models.Model):
     gender = models.CharField(
         max_length=10, choices=[('girl', 'Girl'), ('boy', 'Boy')])
     height = models.FloatField()
-    pic = models.ImageField(upload_to='players/', blank=True, null=True)
+    pic = CloudinaryField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
